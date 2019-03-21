@@ -1,0 +1,83 @@
+ 
+<link href="../../../css4/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css4/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css4/estilos.css" rel="stylesheet" type="text/css"/>
+
+<div id="panelBuscar" class="card">
+                <div class="card-header bg-info centrado">Buscar Usuarios</div>
+                <div class="card-body">
+                    <form  id="formBuscar">
+                        <input type="hidden" id="bpagina" name="bpagina" value="1" >
+                        <div class="row">
+                            <div class="col-md-1">
+                                <span>Nombre</span>
+                            </div>
+                            <div class="col-md-9">
+                                <input id="bnombre" name="bnombre" type="text" class="form-control-sm" placeholder="Nombre" />
+                            </div>
+                            <div class="col-md-2">                                
+                                    <button id="botonBuscar" type="button" class="btn btn-primary btn-sm">Buscar</button>                                
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <div id="resultado">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>                                    
+                                    <th>Nombre</th>
+                                    <th>Login</th> 
+                                    <th>Password</th>
+                                    <th>Rol</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody id="contenidoBusqueda">
+                                
+                            </tbody>
+                        </table>
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-link" id="anterior"><a href="#"><span aria-hidden="true">&larr;</span>Anterior</a></li>
+                                <li class="page-link" id="siguiente"><a href="#">Siguiente<span aria-hidden="true">&rarr;</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="card-footer bg-info centrado">
+                    <button id="botonSalirBuscar" type="button" class="btn btn-primary btn-sm">Salir</button>
+                </div>
+                
+                
+            </div>
+       
+        <script>
+        buscarNombreUsuario();
+        $("#bnombre").focus();
+       siguienteCampo("#bnombre", "#botonBuscar", false);
+        $("#botonBuscar").on("click", function(){
+            $("#contenidoBusqueda").html("");
+            $("#bpagina").val("1");
+            buscarNombreUsuario();
+            $("#bnombre").focus();
+        });   
+        $("#anterior").on("click", function(){
+            $("#contenidoBusqueda").html("");
+            var pag = parseInt($("#bpagina").val());
+            if (pag > 1) {
+                $("#bpagina").val(pag - 1);
+            }
+            buscarNombreUsuario();
+        });
+        $("#siguiente").on("click", function(){
+            $("#contenidoBusqueda").html("");
+            var pag = parseInt($("#bpagina").val());            
+            $("#bpagina").val(pag + 1);            
+            buscarNombreUsuario();
+        });
+        
+        $("#botonSalirBuscar").on("click", function(){
+            $("#buscar").fadeOut("slow");
+            $("#panelPrograma").fadeIn("slow");
+        });
+        </script>
