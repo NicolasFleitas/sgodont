@@ -270,8 +270,19 @@ function limpiarFormulario() {
     $("#apellido_paciente").val("");
     $("#ci_paciente").val("");
     $("#fechanac_paciente").val("");
-    $("#nombre_medico").val("");
-    $("#telefono_medico").val("");
+    
+    $("#altura_paciente").val("");
+    $("#peso_paciente").val("");
+    $("#direccion_paciente").val("");
+    $("#telefono_paciente").val("");
+    $("#celular_paciente").val("");
+    $("#email_paciente").val("");
+    
+    $("#profesion_paciente").val("");
+    $("#lugar_trabajo").val("");
+    $("#seguro_paciente").val("");
+    
+    
   }
 
 

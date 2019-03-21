@@ -79,11 +79,11 @@ public class PacientesControlador {
                     + "peso_paciente='" + paciente.getPeso_paciente()+ "',"
                     + "direccion_paciente='" + paciente.getDireccion_paciente()+ "',"
                     + "telefono_paciente='" + paciente.getTelefono_paciente() +"',"
-                    + "celular_paciente='" + paciente.getCelular_paciente() + "'"
-                    + "email_paciente='" + paciente.getEmail_paciente() + "',"
+                    + "celular_paciente='" + paciente.getCelular_paciente() + "',"
+                    + "email_paciente='" + paciente.getEmail_paciente()+ "',"
                     + "profesion_paciente='" + paciente.getProfesion_paciente()+ "',"
                     + "lugar_trabajo='" + paciente.getLugar_trabajo() + "',"
-                    + "seguro_paciente='" + paciente.getSeguro_paciente()+ "',"
+                    + "seguro_paciente='" + paciente.getSeguro_paciente()+ "'"
                     + " where id_paciente=" + paciente.getId_paciente();
                     
             try {
@@ -150,32 +150,7 @@ public class PacientesControlador {
                     sexo.setNombre_sexo(rs.getString("nombre_sexo"));
                     */
                   //  paciente.setSexo(sexo);
-                } else {                                     
-                    paciente.setId_paciente(0);
-                    paciente.setCi_paciente(0);
-                    paciente.setNombre_paciente("");
-                    paciente.setApellido_paciente("");
-                    paciente.setFechanac_paciente(null);
-                    paciente.setAltura_paciente("");
-                    paciente.setPeso_paciente(0);
-                    
-                    paciente.setDireccion_paciente("");
-                    paciente.setTelefono_paciente("");
-                    paciente.setCelular_paciente("");
-                    paciente.setEmail_paciente("");
-                    
-                    paciente.setProfesion_paciente("");
-                    paciente.setLugar_trabajo("");
-                    paciente.setSeguro_paciente("");
-                    
-                   /* Sexos sexo = new Sexos();
-                    sexo.setId_sexo(0);
-                    sexo.setNombre_sexo("");
-                    */
-                                        
-//                    paciente.setSexo(sexo);
-                    
-                }
+                } 
                 
             } catch (SQLException ex) {
                 System.out.println("Error: " + ex);
@@ -201,6 +176,7 @@ public class PacientesControlador {
                     String tabla = "";
                     while (rs.next()) {
                         tabla += "<tr>"
+                                + "<td>" + rs.getString("id_paciente") + "</td>"
                                 + "<td>" + rs.getString("ci_paciente") + "</td>"
                                 + "<td>" + rs.getString("nombre_paciente") + "</td>"
                                 + "<td>" + rs.getString("apellido_paciente") + "</td>"

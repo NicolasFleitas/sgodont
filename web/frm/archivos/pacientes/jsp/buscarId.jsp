@@ -8,16 +8,39 @@
     
     String tipo = "error";
     String mensaje = "Datos no encontrados.";
-    String nuevo = "true";
-    Pacientes paciente = new Pacientes();
-    paciente.setId_paciente(id_paciente);
-    
-   PacientesControlador.buscarId(paciente);
-    if (paciente.getId_paciente()!=0){
-        tipo = "success";
-        mensaje = "Datos encontrados.";
-        nuevo = "false";
-    }
+        String nuevo = "true";
+        Pacientes paciente = new Pacientes();
+        paciente.setId_paciente(id_paciente);
+
+        PacientesControlador.buscarId(paciente);
+        if (paciente.getId_paciente() != 0) {
+            tipo = "success";
+            mensaje = "Datos encontrados.";
+            nuevo = "false";
+        } else {
+            paciente.setId_paciente(0);
+            paciente.setCi_paciente(0);
+            paciente.setNombre_paciente("");
+            paciente.setApellido_paciente("");
+         //   paciente.setFechanac_paciente("");
+            paciente.setAltura_paciente("");
+            paciente.setPeso_paciente(0);
+
+            paciente.setDireccion_paciente("");
+            paciente.setTelefono_paciente("");
+            paciente.setCelular_paciente("");
+            paciente.setEmail_paciente("");
+
+            paciente.setProfesion_paciente("");
+            paciente.setLugar_trabajo("");
+            paciente.setSeguro_paciente("");
+
+            /* Sexos sexo = new Sexos();
+                    sexo.setId_sexo(0);
+                    sexo.setNombre_sexo("");
+             */
+//                    paciente.setSexo(sexo);
+        }
     
     JSONObject obj = new JSONObject();
     obj.put("tipo", tipo);

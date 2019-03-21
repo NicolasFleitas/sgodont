@@ -10,17 +10,21 @@
     int ci_paciente = Integer.parseInt(request.getParameter("ci_paciente"));
     String nombre_paciente = request.getParameter("nombre_paciente");
     String apellido_paciente = request.getParameter("apellido_paciente");
+    
     String sfechanac_paciente = request.getParameter("fechanac_paciente");
     java.sql.Date fechanac_paciente = Utiles.stringToSqlDate(sfechanac_paciente);
-    String altura_paciente = request.getParameter("fechanac_paciente");
+    
+    String altura_paciente = request.getParameter("altura_paciente");
     int peso_paciente = Integer.parseInt(request.getParameter("peso_paciente"));
+    
     String direccion_paciente = request.getParameter("direccion_paciente");
     String telefono_paciente = request.getParameter("telefono_paciente");
     String celular_paciente = request.getParameter("celular_paciente");
     String email_paciente = request.getParameter("email_paciente");
+    
     String profesion_paciente = request.getParameter("profesion_paciente");
-    String lugar_trabajo = request.getParameter("lugar_traabajo");
-    String seguro_medico = request.getParameter("seguro_medico");
+    String lugar_trabajo = request.getParameter("lugar_trabajo");
+    String seguro_paciente = request.getParameter("seguro_paciente");
 
     String tipo = "error";
     String mensaje = "Datos no modificados.";
@@ -39,7 +43,7 @@
     paciente.setEmail_paciente(email_paciente);
     paciente.setProfesion_paciente(profesion_paciente);
     paciente.setLugar_trabajo(lugar_trabajo);
-    paciente.setSeguro_paciente(seguro_medico);
+    paciente.setSeguro_paciente(seguro_paciente);
 
     if (PacientesControlador.modificar(paciente)) {
         tipo = "success";
