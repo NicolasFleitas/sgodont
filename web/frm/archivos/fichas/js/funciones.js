@@ -424,7 +424,7 @@ function agregarLinea() {
     $("#estado_detalleficha").val("");
     $("#obs_detalleficha").val("");
     $("#medicacion_detalleficha").val("");
-   // $("#fecha_detalleficha").val("");
+    $("#fecha_detalleficha").val("");
     $("#panelLinea").fadeIn("slow");
     $("#panelPrograma").fadeOut("slow");
     
