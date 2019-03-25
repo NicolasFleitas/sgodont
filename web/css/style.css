@@ -10,14 +10,16 @@ body {
    background-attachment: fixed;
    background-position: center; 
 }
-
+#panelPrograma{
+    margin: auto;
+}
 #panelAcceso{
     width: 350px; /* comentario */
     margin: auto;
     margin-top: 5%;
 }
 #mensajes{
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
     margin-bottom: 0;
     width: 100%;

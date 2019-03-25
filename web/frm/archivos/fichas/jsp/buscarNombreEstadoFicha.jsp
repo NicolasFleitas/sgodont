@@ -1,13 +1,13 @@
-<%@page  import="controladores.TutoresControlador"%>
-<%@page  import="org.json.simple.JSONObject"%>
+<%@page import="controladores.EstadoCitasControlador"%>
+<%@page import="org.json.simple.JSONObject"%>
 <%@page  import="java.sql.ResultSet"%>
 <%
-    String nombre_tutor = request.getParameter("bnombre");
+    String nombre_estadocita = request.getParameter("bnombre");
     int pagina = Integer.parseInt(request.getParameter("bpagina"));
     
 
     String mensaje = "Busqueda exitosa";
-    String contenido = TutoresControlador.buscarNombre(nombre_tutor, pagina);
+    String contenido = EstadoCitasControlador.buscarNombre(nombre_estadocita, pagina);
     
     JSONObject obj = new JSONObject();
     obj.put("mensaje", mensaje);

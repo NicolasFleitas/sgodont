@@ -59,7 +59,7 @@
     obj.put("email_paciente", paciente.getEmail_paciente()); 
     obj.put("profesion_paciente", paciente.getProfesion_paciente());     
     obj.put("lugar_trabajo", paciente.getLugar_trabajo());
-    obj.put("seguro_paciente", paciente.getSeguro_paciente()); 
+    obj.put("seguro_paciente", paciente.getSeguro_paciente());
     
     obj.put("id_sexo", paciente.getSexo().getId_sexo());
     obj.put("nombre_sexo", paciente.getSexo().getNombre_sexo());

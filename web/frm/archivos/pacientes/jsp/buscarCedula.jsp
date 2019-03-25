@@ -10,6 +10,7 @@
  
     Pacientes paciente = new Pacientes();
     paciente.setCi_paciente(ci_paciente);
+    
     PacientesControlador.buscarCedula(paciente);
 
 

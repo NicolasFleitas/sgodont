@@ -41,7 +41,8 @@ public class PacientesControlador {
                     + "pacientes (ci_paciente,nombre_paciente,apellido_paciente,"
                     + "fechanac_paciente,altura_paciente,peso_paciente,"
                     + "direccion_paciente,telefono_paciente,celular_paciente,"
-                    + "email_paciente,profesion_paciente,lugar_trabajo,seguro_paciente) " 
+                    + "email_paciente,profesion_paciente,lugar_trabajo,seguro_paciente,"
+                    + "id_sexo) " 
                     + "values ('" + paciente.getCi_paciente()+ "','"
                     + paciente.getNombre_paciente()+ "','"
                     + paciente.getApellido_paciente()+ "','"
@@ -54,7 +55,9 @@ public class PacientesControlador {
                     + paciente.getEmail_paciente()+ "','" 
                     + paciente.getProfesion_paciente()+ "','" 
                     + paciente.getLugar_trabajo()+ "','" 
-                    + paciente.getSeguro_paciente()+ "')";
+                    + paciente.getSeguro_paciente()+ "','"
+                    + paciente.getSexo().getId_sexo() + "')";
+            
                   System.out.println("sql"+ sql);  
             try {
                 Conexion.getSt().executeUpdate(sql);
@@ -83,7 +86,8 @@ public class PacientesControlador {
                     + "email_paciente='" + paciente.getEmail_paciente()+ "',"
                     + "profesion_paciente='" + paciente.getProfesion_paciente()+ "',"
                     + "lugar_trabajo='" + paciente.getLugar_trabajo() + "',"
-                    + "seguro_paciente='" + paciente.getSeguro_paciente()+ "'"
+                    + "seguro_paciente='" + paciente.getSeguro_paciente()+ "',"
+                    + "id_sexo='" + paciente.getSexo().getId_sexo() + "'"
                     + " where id_paciente=" + paciente.getId_paciente();
                     
             try {
@@ -120,8 +124,10 @@ public class PacientesControlador {
     
     public static Pacientes buscarId(Pacientes paciente) {
         if (Conexion.conectar()){
-            String sql = "select * from pacientes"
+            String sql = "select * from pacientes p , sexos sex"
                     + " where "
+                    + "p.id_sexo = sex.id_sexo "
+                    + " and "
                     + "id_paciente ='"+paciente.getId_paciente()+"'";
             
             try {
@@ -145,11 +151,11 @@ public class PacientesControlador {
                     paciente.setLugar_trabajo(rs.getString("lugar_trabajo"));
                     paciente.setSeguro_paciente(rs.getString("seguro_paciente"));    
                     
-                    /*Sexos sexo = new Sexos();
+                    Sexos sexo = new Sexos();
                     sexo.setId_sexo(rs.getInt("id_sexo"));
                     sexo.setNombre_sexo(rs.getString("nombre_sexo"));
-                    */
-                  //  paciente.setSexo(sexo);
+                    
+                    paciente.setSexo(sexo);
                 } 
                 
             } catch (SQLException ex) {

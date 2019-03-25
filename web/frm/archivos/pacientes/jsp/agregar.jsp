@@ -19,7 +19,15 @@
     String email_paciente = request.getParameter("email_paciente");     
     String profesion_paciente = request.getParameter("profesion_paciente"); 
     String lugar_trabajo = request.getParameter("lugar_trabajo"); 
-    String seguro_medico = request.getParameter("seguro_medico"); 
+    
+    
+    String seguro_paciente = request.getParameter("seguro_paciente");
+    System.out.println("SEGURO-PACIENTE: "+ seguro_paciente);
+    
+    int id_sexo = Integer.parseInt(request.getParameter("id_sexo"));    
+    Sexos sexo = new Sexos();
+    sexo.setId_sexo(id_sexo);
+    
     
     String tipo = "error";
     String mensaje = "Datos no agregados.";
@@ -38,7 +46,9 @@
     paciente.setEmail_paciente(email_paciente);    
     paciente.setProfesion_paciente(profesion_paciente);
     paciente.setLugar_trabajo(lugar_trabajo);
-    paciente.setSeguro_paciente(seguro_medico);
+    paciente.setSeguro_paciente(seguro_paciente);
+    
+    paciente.setSexo(sexo);
         
     if (PacientesControlador.agregar(paciente)) {
         tipo = "success";
