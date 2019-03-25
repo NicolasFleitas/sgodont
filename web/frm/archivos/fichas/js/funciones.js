@@ -422,14 +422,16 @@ function agregarLinea() {
     $("#id_servicio").val("0");
     $("#nombre_servicio").val("");
     $("#estado_detalleficha").val("");
-    
+    $("#obs_detalleficha").val("");
+    $("#medicacion_detalleficha").val("");
+   // $("#fecha_detalleficha").val("");
     $("#panelLinea").fadeIn("slow");
     $("#panelPrograma").fadeOut("slow");
     
     $("#botonAgregarLinea").prop('disabled', false);
     $("#botonModificarLinea").prop('disabled', true);
     $("#botonEliminarLinea").prop('disabled', true);
-    siguienteCampo("#estado_detalleficha", "#botonAgregarLinea", true);
+    siguienteCampo("#id_servicio", "#botonAgregarLinea", true);
 }
 function editarLinea(id) {
     $("#id_detalleficha").val(id);
@@ -437,6 +439,10 @@ function editarLinea(id) {
     $("#id_servicio").val(0);
     $("#nombre_servicio").val("");
     $("#estado_detalleficha").val("");// QUITAR
+    /*
+     * Se agregan campos con el id
+     * 
+     **/
     
     $("#panelLinea").fadeIn("slow");
     $("#panelPrograma").fadeOut("slow");
@@ -502,8 +508,10 @@ function buscarIdDetalleFicha() {
             $("#nombre_servicio").val(json.nombre_servicio);
             //alert("Nombre del servicio: "+json.nombre_servicio);
             $("#estado_detalleficha").val(json.estado_detalleficha);
-          //  alert("ESTADO: "+json.estado_detalleficha);
-           
+            $("#obs_detalleficha").val(json.obs_detalleficha);
+            $("#medicacion_detalleficha").val(json.medicacion_detalleficha);
+            $("#fecha_detalleficha").val(json.fecha_detalleficha);
+            
         },
         error: function (e) {
             $("#mensajes").html("No se pudo recuperar los datos.");

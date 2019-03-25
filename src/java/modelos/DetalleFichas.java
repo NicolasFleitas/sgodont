@@ -1,30 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelos;
 
-/**
- *
- * @author ALUMNO
- */
+import java.sql.Date;
+
 public class DetalleFichas {
     int id_detalleficha;
     Servicios servicio;
     Fichas ficha;
     String estado_detalleficha;
+    String obs_detalleficha;
+    String medicacion_detalleficha;
+    Date fecha_detalleficha;
+    
 
     public DetalleFichas() {
     }
 
-    public DetalleFichas(int id_detalleficha, Servicios servicio, Fichas ficha, String estado_detalleficha) {
+    public DetalleFichas(int id_detalleficha, Servicios servicio, Fichas ficha, String estado_detalleficha, String obs_detalleficha, String medicacion_detalleficha, Date fecha_detalleficha) {
         this.id_detalleficha = id_detalleficha;
         this.servicio = servicio;
         this.ficha = ficha;
         this.estado_detalleficha = estado_detalleficha;
+        this.obs_detalleficha = obs_detalleficha;
+        this.medicacion_detalleficha = medicacion_detalleficha;
+        this.fecha_detalleficha = fecha_detalleficha;
     }
 
+    public String getObs_detalleficha() {
+        return obs_detalleficha;
+    }
+
+    public void setObs_detalleficha(String obs_detalleficha) {
+        this.obs_detalleficha = obs_detalleficha;
+    }
+
+    public String getMedicacion_detalleficha() {
+        return medicacion_detalleficha;
+    }
+
+    public void setMedicacion_detalleficha(String medicacion_detalleficha) {
+        this.medicacion_detalleficha = medicacion_detalleficha;
+    }
+
+    public Date getFecha_detalleficha() {
+        return fecha_detalleficha;
+    }
+
+    public void setFecha_detalleficha(Date fecha_detalleficha) {
+        this.fecha_detalleficha = fecha_detalleficha;
+    }
+
+  
     public int getId_detalleficha() {
         return id_detalleficha;
     }

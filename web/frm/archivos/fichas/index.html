@@ -48,9 +48,39 @@
                             <span>Estado</span>
                         </div>
                         <div class="col-md-1">
-                            <input id="estado_detalleficha" name="estado_detalleficha" type="text" class="form-control input-sm derecha" placeholder="Estado">
+                            <input id="estado_detalleficha" name="estado_detalleficha" type="text" class="form-control input-sm" placeholder="Estado">
                         </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Obs Trat</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="obs_detalleficha" name="obs_detalleficha" type="text" class="form-control input-sm" placeholder="Obs">
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Medicacion Trat</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id=medicacion_detalleficha name="medicacion_detalleficha" type="text" class="form-control input-sm " placeholder="Medicacion Trat">
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1">
+                            <span>Fecha Trat</span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <input id="fecha_detalleficha" name="fecha_detalleficha" type="date" class="form-control input-sm">
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
             <div class="panel-footer centrado">
@@ -60,8 +90,6 @@
                 <button id="botonSalirLinea" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
             </div>
         </div>
-
-
 
         <!--PANEL PROGRAMA-->
         <div id="panelPrograma" class="panel panel-primary">
@@ -88,7 +116,7 @@
                         <div class="col-md-1">
                             <span>Fecha</span>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-sm-2">
                             <input id="fecha_ficha" name="fecha_ficha" type="date" class="form-control input-sm">
                         </div>
                     </div>
@@ -145,7 +173,7 @@
                             <span>Motivo de consulta</span>
                         </div>
                         <div class="col-md-3">
-                            <input id="nombre_ficha" name="nombre_ficha" type="text" class="form-control input-sm" placeholder="Observacion" >
+                            <input id="nombre_ficha" name="nombre_ficha" type="text" class="form-control input-sm" placeholder="Motivo consulta" >
                         </div>
                     </div>
                     
@@ -270,6 +298,7 @@
                             <th>Cod Tratamiento</th>
                             <th>Tratamiento</th>
                             <th class="centrado">Estado</th>
+                            <th class="centrado">Fecha Trat</th>
                             <th class="centrado">
                                 <button onclick="agregarLinea()" type="button" class="btn btn-primary btn-sm">
                                     <span class="glyphicon glyphicon-plus"></span></button></th>

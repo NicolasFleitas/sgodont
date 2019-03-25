@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 //import java.math.BigDecimal;
@@ -15,28 +10,29 @@ import modelos.DetalleFichas;
 import modelos.Servicios;
 import utiles.Conexion;
 
-/**
- *
- * @author Cinthia
- */
 public class DetalleFichasControlador {
 
     public static boolean agregar(DetalleFichas detalleficha) {
         boolean valor = false;
         if (Conexion.conectar()) {
             String sql = "insert into detallefichas "
-                    + "(id_ficha,estado_detalleficha,id_servicio) "
-                    + "values (?,?,?)";
+                    + "(id_ficha,estado_detalleficha,id_servicio,"
+                    + "obs_detalleficha,medicacion_detalleficha,fecha_detalleficha) "
+                    + "values (?,?,?,?,?,?)";
             try (PreparedStatement ps = Conexion.getConn().prepareStatement(sql)) {
                 ps.setInt(1, detalleficha.getFicha().getId_ficha());
                 ps.setString(2, detalleficha.getEstado_detalleficha());
                 ps.setInt(3, detalleficha.getServicio().getId_servicio());
+                ps.setString(4, detalleficha.getObs_detalleficha());
+                ps.setString(5, detalleficha.getMedicacion_detalleficha());
+                ps.setDate(6, detalleficha.getFecha_detalleficha());
                 ps.executeUpdate();
                 ps.close();
-                Conexion.getConn().commit();
+                Conexion.getConn().setAutoCommit(false);
+
                 valor = true;
             } catch (SQLException ex) {
-               System.out.println("AGREGARDETALLEFICHA--> " + ex.getLocalizedMessage());
+                System.out.println("AGREGARDETALLEFICHA--> " + ex.getLocalizedMessage());
                 try {
                     Conexion.getConn().rollback();
                 } catch (SQLException ex1) {
@@ -54,7 +50,7 @@ public class DetalleFichasControlador {
                     + "left join servicios s"
                     + " on df.id_servicio=s.id_servicio"
                     + " where df.id_detalleficha=" + detalleficha.getId_detalleficha();*/
-            
+
             String sql = "select * from detallefichas df, servicios s , fichas f "
                     + " where "
                     + "df.id_servicio = s.id_servicio"
@@ -62,34 +58,59 @@ public class DetalleFichasControlador {
                     + "df.id_ficha = f.id_ficha"
                     + " and "
                     + "df.id_detalleficha=" + detalleficha.getId_detalleficha();
-            
+
             System.out.println("DetalleFichasControlador.BuscarId:--> " + sql);
             try {
                 ResultSet rs = Conexion.getSt().executeQuery(sql);
                 if (rs.next()) {
                     detalleficha.setId_detalleficha(rs.getInt("id_detalleficha"));
                     detalleficha.setEstado_detalleficha(rs.getString("estado_detalleficha"));
-                        
+
                     Fichas ficha = new Fichas();
                     ficha.setId_ficha(rs.getInt("id_ficha"));
-                    
+
                     Servicios servicio = new Servicios();
                     servicio.setId_servicio(rs.getInt("id_servicio"));
                     servicio.setNombre_servicio(rs.getString("nombre_servicio"));
-                    
+
                     detalleficha.setFicha(ficha);
                     detalleficha.setServicio(servicio);
+
+                    detalleficha.setObs_detalleficha(rs.getString("obs_detalleficha"));
+                    detalleficha.setMedicacion_detalleficha(rs.getString("medicacion_detalleficha"));
+                    detalleficha.setFecha_detalleficha(rs.getDate("fecha_detalleficha"));
+                    System.out.println("****CON DETALLEFICHA**********");
+                    System.out.println("ID_detalleficha : " + detalleficha.getId_detalleficha());
+                    System.out.println(" ESTADO: " + detalleficha.getEstado_detalleficha());
+                    System.out.println("SERVICIO: " + detalleficha.getServicio().getNombre_servicio());
+                    System.out.println("FECHA DF: " + detalleficha.getFecha_detalleficha());
+                    System.out.println("**************");
+
+                } else {
+                    detalleficha.setId_detalleficha(0);
+
+                    Servicios servicio = new Servicios();
+                    servicio.setId_servicio(0);
+                    servicio.setNombre_servicio("");
+
+                    detalleficha.setServicio(servicio);
+                    detalleficha.setEstado_detalleficha("");
+
+                    Fichas ficha = new Fichas();
+                    ficha.setId_ficha(0);
+
+                    detalleficha.setFicha(ficha);
+                    detalleficha.setServicio(servicio);
+
+                    detalleficha.setObs_detalleficha("");
+                    detalleficha.setMedicacion_detalleficha("");
                     
-                    System.out.println("CONTROLADOR DF: "+ detalleficha.getId_detalleficha());
-                    System.out.println(" ESTADO: "+ detalleficha.getEstado_detalleficha());
-                    System.out.println("NOMBRE SERVICIO: "+ detalleficha.getServicio().getNombre_servicio());
-                        
-                    System.out.println("***");
-                    //detalleficha.setEstado_detalleficha(rs.getString("estado_detalleficha"));
-                    
+                    java.sql.Date hoy_detalle = new java.sql.Date(new java.util.Date().getTime());                    
+                    System.out.println("Fecha actual detalle : " + hoy_detalle);
+                    detalleficha.setFecha_detalleficha(hoy_detalle);
                 }
             } catch (SQLException ex) {
-                //System.out.println("BUSCAR ID DETALLECITA--> " + ex.getLocalizedMessage());
+                //System.out.println("BUSCAR ID DETALLEFICHA--> " + ex.getLocalizedMessage());
             }
         }
         Conexion.cerrar();
@@ -100,11 +121,7 @@ public class DetalleFichasControlador {
         String valor = "";
         if (Conexion.conectar()) {
             try {
-               /* String sql = "select * from detallefichas df "
-                        + "left join fichas f on f.id_ficha=df.id_ficha "
-                        + "left join servicios s on df.id_servicio=s.id_servicio "
-                        + "where df.id_ficha=" + id + " "
-                        + "order by id_detalleficha";*/
+               
                String sql = "select * from detallefichas df, servicios s, fichas f"
                         + " where "
                         + "df.id_ficha = f.id_ficha"
@@ -129,6 +146,7 @@ public class DetalleFichasControlador {
                                 + "<td>" + rs.getString("id_servicio") + "</td>"
                                 + "<td>" + rs.getString("nombre_servicio") + "</td>"
                                 + "<td>" + rs.getString("estado_detalleficha") + "</td>"
+                                + "<td>" + rs.getDate("fecha_detalleficha") + "</td>"
                                 //+ "<td class='centrado'>" + df.format(estado) + "</td>"
                                 + "<td class='centrado'>"
                                 + "<button onclick='editarLinea(" + rs.getString("id_detalleficha") + ")'"
@@ -160,11 +178,16 @@ public class DetalleFichasControlador {
         if (Conexion.conectar()) {
             String sql = "update detallefichas set "
                     + "id_ficha="+ detalleficha.getFicha().getId_ficha()+", "
-                    + "estado_detalleficha='" + detalleficha.getEstado_detalleficha()+"', "
-                    + "id_servicio="+ detalleficha.getServicio().getId_servicio()+" "
-                    + "where id_detalleficha= " + detalleficha.getId_detalleficha()+ " ";
-
+                    + "estado_detalleficha='" + detalleficha.getEstado_detalleficha() +"',"
+                    + "id_servicio='"+ detalleficha.getServicio().getId_servicio() +"',"
+                    + "obs_detalleficha='"+ detalleficha.getObs_detalleficha() +"',"
+                    + "medicacion_detalleficha='"+ detalleficha.getMedicacion_detalleficha() +"',"
+                    + "fecha_detalleficha='"+ detalleficha.getFecha_detalleficha() +"'"                   
+                    + " where "
+                    + "id_detalleficha= " + detalleficha.getId_detalleficha();
+            System.out.println("*****");
             System.out.println("MODIFICAR DETALLE " + sql);
+            System.out.println("*****");
             try {
                 Conexion.getSt().executeUpdate(sql);
                 valor = true;
@@ -208,7 +231,7 @@ public class DetalleFichasControlador {
                 ps.executeUpdate();
                 ps.close();
                 Conexion.getConn().commit();
-                System.out.println("ELIMINAR SERVICIO CITA--->" + ficha.getId_ficha());
+                System.out.println("ELIMINAR SERVICIO FICHA--->" + ficha.getId_ficha());
                 valor = true;
             } catch (SQLException ex) {
                 System.out.println("--->" + ex.getLocalizedMessage());
