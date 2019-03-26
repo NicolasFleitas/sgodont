@@ -17,11 +17,21 @@ function buscarIdFicha() {
             $("#id_doctor").val(json.id_doctor);
             $("#nombre_doctor").val(json.nombre_doctor);            
             $("#id_paciente").val(json.id_paciente);
-            $("#nombre_paciente").val(json.nombre_paciente);       
+            $("#nombre_paciente").val(json.nombre_paciente);  
+            $("#apellido_paciente").val(json.apellido_paciente); 
+            $("#nombre_sexo").val(json.nombre_sexo); 
             $("#presion_alta").val(json.presion_alta);
             $("#presion_baja").val(json.presion_baja);            
             $("#alergias_paciente").val(json.alergias_paciente);
             $("#vacunas_paciente").val(json.vacunas_paciente);
+            
+            /*Si es femenino*/
+            $("#tiene_embarazo").val(json.tiene_embarazo);
+            $("#tiempo_gestacion").val(json.tiempo_gestacion);
+            $("#esta_amamantando").val(json.esta_amamantando);
+            $("#medico_tratante").val(json.medico_tratante);
+            $("#medico_tratante_nro").val(json.medico_tratante_nro);
+            /* ********* */
             
             $("#alteraciones_sistem").val(json.alteraciones_sistem);
             $("#hab_nocivos").val(json.hab_nocivos);
@@ -34,6 +44,7 @@ function buscarIdFicha() {
            } else {
                 $("#botonFacturar").prop('disabled', true);
            }*/
+            quitarcamposfemeninos();
             if (json.nuevo === "true") {
                $("#botonAgregar").prop('disabled', false);
                $("#botonModificar").prop('disabled', true);
@@ -57,6 +68,23 @@ function buscarIdFicha() {
         }
     });
 }
+
+function quitarcamposfemeninos() {
+    //  alert("HOLA");
+    var sexo = $("#nombre_sexo").val();
+   // alert(" SEXO " + sexo)
+    if (sexo === "MASCULINO") {
+        $("#esfemenino").hide();
+       // alert("SI");
+    } else
+        if (sexo === "FEMENINO") {
+        $("#esfemenino").show();
+       // alert("SI");
+    }
+};
+                                
+                                
+                                
 function buscarNombreFicha() {
     var datosFormulario = $("#formBuscar").serialize();
     //alert(datosFormulario);
@@ -302,6 +330,7 @@ function buscarIdPaciente() {
             
             $("#id_sexo").val(json.id_sexo);
             $("#nombre_sexo").val(json.nombre_sexo);
+            quitarcamposfemeninos();
             // console.log(json.nuevo);
             
         },
@@ -589,6 +618,12 @@ function limpiarFormulario(){
         $("#nombre_doctor").val("");
        // $("#presion_alta").val("");
        
+       $("#tiene_embarazo").val("");
+       $("#tiempo_gestacion").val("");
+       $("#esta_amamantando").val("");
+       $("#medico_tratante").val("");
+       $("#medico_tratante_nro").val("");
+       
         $("#nombre_doctor").val("");
         $("#alergias_paciente").val("");
         $("#vacunas_paciente").val("");
@@ -599,50 +634,59 @@ function limpiarFormulario(){
     }
  
   function validarFormulario() {
-        var valor = true;
-        if ($("#id_doctor").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("Seleccione un doctor");
-            $("#id_doctor").focus();
-        } else if ($("#id_doctor").val().trim() == 0) {
-            valor = false;
-            $("#mensajes").html("Seleccione un doctor");
-            $("#id_doctor").focus();
-        } else if ($("#nombre_doctor").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("Doctor no puede estar vacio");
-            $("#nombre_doctor").focus();
-            /*Paciente*/
-        } else  if ($("#id_paciente").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("Seleccione un paciente");
-            $("#id_paciente").focus();
-        } else if ($("#id_paciente").val().trim() == 0) {
-            valor = false;
-            $("#mensajes").html("Seleccione un paciente");
-            $("#id_paciente").focus();
-        } else if ($("#nombre_paciente").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("Paciente no puede estar vacio");
-            $("#nombre_paciente").focus();
-        } else if ($("#nombre_ficha").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("Especifique el motivo de la consulta");
-            $("#nombre_ficha").focus();
-        }/* else if ($("#presion_alta").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("El campo de presion alta no puede estar vacio");
-            $("#presion_alta").focus();
-        }*/ else if ($("#alergias_paciente").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("El campo de alergias no puede estar vacio");
-            $("#alergias_paciente").focus();
-        } else if ($("#vacunas_paciente").val().trim() === "") {
-            valor = false;
-            $("#mensajes").html("El campo de vacunas no puede estar vacio");
-            $("#vacunas_paciente").focus();
-        } 
-        
-        return valor;
+      var valor = true;
+    /*if ($("#id_doctor").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Seleccione un doctor");
+        $("#id_doctor").focus();
+    } else if ($("#id_doctor").val().trim() == 0) {
+        valor = false;
+        $("#mensajes").html("Seleccione un doctor");
+        $("#id_doctor").focus();
+    } else
+    */ if ($("#nombre_doctor").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Doctor no puede estar vacio");
+        $("#id_doctor").focus();
+        /*Paciente*/
     }
+    /*else if ($("#id_paciente").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Seleccione un paciente");
+        $("#id_paciente").focus();
+    } 
+      */
+    /*else if ($("#id_paciente").val().trim() == 0) {
+        valor = false;
+        $("#mensajes").html("Seleccione un paciente");
+        $("#id_paciente").focus();
+    } */ 
+    else if ($("#nombre_paciente").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Paciente no puede estar vacio");
+        $("#id_paciente").focus();
+    } else if ($("#nombre_ficha").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Especifique el motivo de la consulta");
+        $("#nombre_ficha").focus();
+    } else if ($("#presion_alta_select").val() === "elegirpa") {
+        $("#mensajes").html("El campo de presion ALTA no puede estar vacio");
+        valor = false;
+        $("#presion_alta").focus();
+    } else if ($("#presion_baja_select").val() === "elegirpb") {
+        $("#mensajes").html("El campo de presion BAJA no puede estar vacio");
+        valor = false;
+        $("#presion_alta").focus();
+    }
+      else if ($("#alergias_paciente").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("El campo de alergias no puede estar vacio");
+        $("#alergias_paciente").focus();
+    } else if ($("#vacunas_paciente").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("El campo de vacunas no puede estar vacio");
+        $("#vacunas_paciente").focus();
+    }
+    return valor;
+}
     

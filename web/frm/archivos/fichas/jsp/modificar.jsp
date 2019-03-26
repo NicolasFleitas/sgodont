@@ -19,6 +19,11 @@
     String alteraciones_sistem = request.getParameter("alteraciones_sistem");
     String hab_nocivos = request.getParameter("hab_nocivos");
     String medicacion_actual = request.getParameter("medicacion_actual");
+    String tiene_embarazo = request.getParameter("tiene_embarazo");
+    String tiempo_gestacion = request.getParameter("tiempo_gestacion");
+    String esta_amamantando = request.getParameter("esta_amamantando");
+    String medico_tratante = request.getParameter("medico_tratante");
+    String medico_tratante_nro = request.getParameter("medico_tratante_nro");
   
     Doctores doctor = new Doctores();
     doctor.setId_doctor(id_doctor);
@@ -41,6 +46,11 @@
     ficha.setAlteraciones_sistem(alteraciones_sistem);
     ficha.setHab_nocivos(hab_nocivos);
     ficha.setMedicacion_actual(medicacion_actual);
+    ficha.setTiene_embarazo(tiene_embarazo);
+    ficha.setTiempo_gestacion(tiempo_gestacion);
+    ficha.setEsta_amamantando(esta_amamantando);
+    ficha.setMedico_tratante(medico_tratante);
+    ficha.setMedico_tratante_nro(medico_tratante_nro);
     
    if (FichasControlador.modificar(ficha)){
        tipo = "success";

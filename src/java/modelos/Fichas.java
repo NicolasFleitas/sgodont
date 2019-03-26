@@ -14,11 +14,17 @@ public class Fichas {
     private String alteraciones_sistem;
     private String hab_nocivos;
     private String medicacion_actual;
+    private String tiene_embarazo;
+    private String tiempo_gestacion;
+    private String esta_amamantando;
+    private String medico_tratante;
+    private String medico_tratante_nro;
+  
 
     public Fichas() {
     }
 
-    public Fichas(int id_ficha, Doctores doctor, Pacientes paciente, String nombre_ficha, Date fecha_ficha, String presion_alta, String presion_baja, String alergias_paciente, String vacunas_paciente, String alteraciones_sistem, String hab_nocivos, String medicacion_actual) {
+    public Fichas(int id_ficha, Doctores doctor, Pacientes paciente, String nombre_ficha, Date fecha_ficha, String presion_alta, String presion_baja, String alergias_paciente, String vacunas_paciente, String alteraciones_sistem, String hab_nocivos, String medicacion_actual, String tiene_embarazo, String tiempo_gestacion, String esta_amamantando, String medico_tratante, String medico_tratante_nro) {
         this.id_ficha = id_ficha;
         this.doctor = doctor;
         this.paciente = paciente;
@@ -31,8 +37,55 @@ public class Fichas {
         this.alteraciones_sistem = alteraciones_sistem;
         this.hab_nocivos = hab_nocivos;
         this.medicacion_actual = medicacion_actual;
+        this.tiene_embarazo = tiene_embarazo;
+        this.tiempo_gestacion = tiempo_gestacion;
+        this.esta_amamantando = esta_amamantando;
+        this.medico_tratante = medico_tratante;
+        this.medico_tratante_nro = medico_tratante_nro;
     }
 
+    public String getTiene_embarazo() {
+        return tiene_embarazo;
+    }
+
+    public void setTiene_embarazo(String tiene_embarazo) {
+        this.tiene_embarazo = tiene_embarazo;
+    }
+
+    public String getTiempo_gestacion() {
+        return tiempo_gestacion;
+    }
+
+    public void setTiempo_gestacion(String tiempo_gestacion) {
+        this.tiempo_gestacion = tiempo_gestacion;
+    }
+
+    public String getEsta_amamantando() {
+        return esta_amamantando;
+    }
+
+    public void setEsta_amamantando(String esta_amamantando) {
+        this.esta_amamantando = esta_amamantando;
+    }
+
+    public String getMedico_tratante() {
+        return medico_tratante;
+    }
+
+    public void setMedico_tratante(String medico_tratante) {
+        this.medico_tratante = medico_tratante;
+    }
+
+    public String getMedico_tratante_nro() {
+        return medico_tratante_nro;
+    }
+
+    public void setMedico_tratante_nro(String medico_tratante_nro) {
+        this.medico_tratante_nro = medico_tratante_nro;
+    }
+
+  
+    
     public String getAlteraciones_sistem() {
         return alteraciones_sistem;
     }

@@ -10,6 +10,7 @@ import utiles.Conexion;
 import utiles.Utiles;
 import modelos.Doctores;
 import modelos.Pacientes;
+import modelos.Sexos;
 
 public class FichasControlador {
 
@@ -18,7 +19,9 @@ public class FichasControlador {
         if (Conexion.conectar()) {
             String sql = "insert into fichas(nombre_ficha, fecha_ficha, id_doctor, id_paciente,"
                     + "presion_alta,presion_baja,alergias_paciente,vacunas_paciente,"
-                    + "alteraciones_sistem,hab_nocivos,medicacion_actual)"
+                    + "alteraciones_sistem,hab_nocivos,medicacion_actual,"
+                    + "tiene_embarazo,tiempo_gestacion,esta_amamantando,"
+                    + "medico_tratante,medico_tratante_nro)"
                     + " values('" + ficha.getNombre_ficha() + "','"
                     + ficha.getFecha_ficha() + "','"
                     + ficha.getDoctor().getId_doctor() + "','"
@@ -29,7 +32,12 @@ public class FichasControlador {
                     + ficha.getVacunas_paciente() + "','"
                     + ficha.getAlteraciones_sistem() + "','"
                     + ficha.getHab_nocivos() + "','"
-                    + ficha.getMedicacion_actual() + "')";
+                    + ficha.getMedicacion_actual() + "','"
+                    + ficha.getTiene_embarazo() + "','"
+                    + ficha.getTiempo_gestacion() + "','"
+                    + ficha.getEsta_amamantando() + "','"
+                    + ficha.getMedico_tratante() + "','"
+                    + ficha.getMedico_tratante_nro() + "')";
 
             try {
                 Conexion.getSt().executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
@@ -88,11 +96,13 @@ public class FichasControlador {
 
     public static Fichas buscarId(Fichas ficha) {
         if (Conexion.conectar()) {
-            String sql = "select * from fichas f, doctores d, pacientes p"
+            String sql = "select * from fichas f, doctores d, pacientes p, sexos s"
                     + " where "
                     + "f.id_doctor = d.id_doctor"
                     + " and "
                     + "f.id_paciente = p.id_paciente"
+                    + " and "
+                    + "p.id_sexo = s.id_sexo"
                     + " and "
                     + "id_ficha =" + ficha.getId_ficha() + "";
             System.out.println("FichasConBuscarId-->" + sql);
@@ -110,7 +120,11 @@ public class FichasControlador {
                     doctor.setNombre_doctor(rs.getString("nombre_doctor"));
 
                     paciente.setId_paciente(rs.getInt("id_paciente"));
-                    paciente.setNombre_paciente(rs.getString("nombre_paciente"));                   
+                    paciente.setNombre_paciente(rs.getString("nombre_paciente"));  
+                    paciente.setApellido_paciente(rs.getString("apellido_paciente"));  
+                    Sexos sexo = new Sexos();
+                    sexo.setNombre_sexo(rs.getString("nombre_sexo"));
+                    paciente.setSexo(sexo);
 
                     ficha.setDoctor(doctor);
                     ficha.setPaciente(paciente);
@@ -123,9 +137,24 @@ public class FichasControlador {
                     ficha.setHab_nocivos(rs.getString("hab_nocivos"));
                     ficha.setMedicacion_actual(rs.getString("medicacion_actual"));
                     
+                    ficha.setTiene_embarazo(rs.getString("tiene_embarazo"));
+                    ficha.setTiempo_gestacion(rs.getString("tiempo_gestacion"));
+                    ficha.setEsta_amamantando(rs.getString("esta_amamantando"));
+                    ficha.setMedico_tratante(rs.getString("medico_tratante"));
+                    ficha.setMedico_tratante_nro(rs.getString("medico_tratante_nro"));
+                    
+                    
                 } else {
                     Doctores doctor = new Doctores();
                     Pacientes paciente = new Pacientes();
+                    paciente.setId_paciente(0);
+                    paciente.setNombre_paciente("");
+                    paciente.setApellido_paciente("");
+                    Sexos sexo = new Sexos();
+                    sexo.setNombre_sexo("");
+                    paciente.setSexo(sexo);
+                    
+                    
                     //Date fecha = new Date();
                     java.sql.Date hoy = new java.sql.Date(new java.util.Date().getTime());                    
                     System.out.println("FECHA HOY : " + hoy);
@@ -135,6 +164,7 @@ public class FichasControlador {
                     
                     paciente.setId_paciente(0);
                     paciente.setNombre_paciente("");
+                    paciente.setSexo(sexo);
                     
                     ficha.setDoctor(doctor);
                     ficha.setPaciente(paciente);
@@ -146,6 +176,12 @@ public class FichasControlador {
                     ficha.setAlteraciones_sistem("");
                     ficha.setHab_nocivos("");
                     ficha.setMedicacion_actual("");
+                    
+                    ficha.setTiene_embarazo("");
+                    ficha.setTiempo_gestacion("");
+                    ficha.setEsta_amamantando("");
+                    ficha.setMedico_tratante("");
+                    ficha.setMedico_tratante_nro("");
                     
                 }
             } catch (SQLException ex) {
@@ -213,7 +249,12 @@ public class FichasControlador {
                     + "vacunas_paciente='" + ficha.getVacunas_paciente() + "'," 
                     + "alteraciones_sistem='" + ficha.getAlteraciones_sistem()+ "',"
                     + "hab_nocivos='" + ficha.getHab_nocivos()+ "',"
-                    + "medicacion_actual='" + ficha.getMedicacion_actual() + "'" 
+                    + "medicacion_actual='" + ficha.getMedicacion_actual() + "'," 
+                    + "tiene_embarazo='" + ficha.getTiene_embarazo()+ "'," 
+                    + "tiempo_gestacion='" + ficha.getTiempo_gestacion() + "',"
+                    + "esta_amamantando='" + ficha.getEsta_amamantando() + "',"
+                    + "medico_tratante='" + ficha.getMedico_tratante() + "',"
+                    + "medico_tratante_nro='" + ficha.getMedico_tratante_nro()+ "'" 
                     + " where "
                     + "id_ficha=" + ficha.getId_ficha();
             System.out.println("MODIFICAR FICHA-->"+ sql);

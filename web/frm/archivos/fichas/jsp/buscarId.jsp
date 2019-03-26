@@ -39,6 +39,8 @@
     obj.put("nombre_doctor", ficha.getDoctor().getNombre_doctor());
     obj.put("id_paciente", ficha.getPaciente().getId_paciente());
     obj.put("nombre_paciente", ficha.getPaciente().getNombre_paciente());
+    obj.put("apellido_paciente", ficha.getPaciente().getApellido_paciente());
+    obj.put("nombre_sexo", ficha.getPaciente().getSexo().getNombre_sexo());
     obj.put("presion_alta", ficha.getPresion_alta());
     obj.put("presion_baja", ficha.getPresion_baja());
     obj.put("alergias_paciente", ficha.getAlergias_paciente());
@@ -46,6 +48,12 @@
     obj.put("alteraciones_sistem", ficha.getAlteraciones_sistem());
     obj.put("hab_nocivos", ficha.getHab_nocivos());
     obj.put("medicacion_actual", ficha.getMedicacion_actual());
+    
+    obj.put("tiene_embarazo", ficha.getTiene_embarazo());
+    obj.put("tiempo_gestacion", ficha.getTiempo_gestacion());
+    obj.put("esta_amamantando", ficha.getEsta_amamantando());
+    obj.put("medico_tratante", ficha.getMedico_tratante());
+    obj.put("medico_tratante_nro", ficha.getMedico_tratante_nro());
     
     obj.put("contenido_detalle", contenido_detalle);
 

@@ -61,7 +61,6 @@
                         </div>
                     </div>
                     
-                    
                     <div class="row">
                         <div class="col-md-1">
                             <span>Medicacion Trat</span>
@@ -70,8 +69,6 @@
                             <input id=medicacion_detalleficha name="medicacion_detalleficha" type="text" class="form-control input-sm " placeholder="Medicacion Trat">
                         </div>
                     </div>
-                    
-                    
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
                             <span>Fecha Trat</span>
@@ -80,7 +77,6 @@
                             <input id="fecha_detalleficha" name="fecha_detalleficha" type="date" class="form-control input-sm">
                         </div>
                     </div>
-                    
                 </form>
             </div>
             <div class="panel-footer centrado">
@@ -97,7 +93,6 @@
                     id="sficha_ficha"></span></div>
             <div class="panel-body">
                 <form id="formPrograma">
-                    
                     <div class="row">
                         <div class="col-md-1">
                             <span>Nº Ficha</span>
@@ -122,51 +117,100 @@
                     </div>
                     <!--DOCTORES-->
                     <div class="row">
-                        <div class="col-md-1">
-                            <span>Id Doctor</span>
+                        <div class="col-md-1 col-sm-1">
+                            <span>DR.</span>
                         </div>
-                        <div class="col-md-1">
+                        
+                        <div class="col-md-1 col-sm-1">
                             <input id="id_doctor" name="id_doctor" type="text"
                                    class="form-control input-sm" placeholder="Id">
                         </div>
+                        
                         <div class="col-md-1">
                             <button id="botonBuscarIdDoctor" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
-                       
-                    </div>
-                    <div class="row">
+                        
                         <div class="col-md-1">
-                            <span>Nombre Dr</span>
+                            <span>NOMBRE</span>
                         </div>
                         <div class="col-md-3">
                             <input id="nombre_doctor" name="nombre_doctor" type="text" class="form-control input-sm" placeholder="Nombre" readonly="" >
                         </div>
+                        <hr>
+                       
                     </div>
                     
                     <!--PACIENTES-->
                     <div class="row">
                         <div class="col-md-1">
-                            <span>Id Paciente</span>
+                            <span>Nro Pcte</span>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <input id="id_paciente" name="id_paciente" type="text"
                                    class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event)">
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <button id="botonBuscarIdPaciente" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
+                    <br>
                     
                     <div class="row">
                         <div class="col-md-1">
                             <span>Paciente</span>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-sm-12">
                             <input id="nombre_paciente" name="nombre_paciente" type="text" class="form-control input-sm" placeholder="Nombre" readonly="" >
                         </div>
+                        <div class="col-md-3 col-sm-12">
+                            <input id="apellido_paciente" name="apellido_paciente" type="text" class="form-control input-sm" placeholder="Apellido" readonly="" >
+                        </div>
+                        
+                        <div class="col-md-2 col-sm-2">
+                            <input id="nombre_sexo" name="nombre_sexo" type="text" 
+                                   class="form-control input-sm" placeholder="sexo" readonly="">
+                        </div>
                     </div>
+                           
+                    <div class="row" id='esfemenino'>
+                        <div class="col-md-1">
+                            <span>Embarazo</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <input id="tiene_embarazo" name="tiene_embarazo" type="text" class="form-control input-sm" placeholder="embarazo">
+                        </div>
+                        <div class="col-md-1">
+                            <span>Tiempo Embarazo</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <input id="tiempo_gestacion" name="tiempo_gestacion" type="text" class="form-control input-sm" placeholder="tiempo gestacion">
+                        </div>
+                        <div class="col-md-1">
+                            <span>Amamanta</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <input id="esta_amamantando" name="esta_amamantando" type="text" class="form-control input-sm" placeholder="amamanta">
+                        </div>
+                        <div class="col-md-1">
+                            <span>Med tratante</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <input id="medico_tratante" name="medico_tratante" type="text" class="form-control input-sm" placeholder="medico">
+                        </div>
+                        <div class="col-md-1">
+                            <span>Nro Medico Tratante</span>
+                        </div>
+                         <div class="col-md-1 col-sm-1">
+                             <input id="medico_tratante_nro" name="medico_tratante_nro" type="text" class="form-control input-sm" placeholder="medico nro">
+                        </div>
+                       <!-- <div>
+                            <button type="button" onclick="quitarcamposfemeninos()"> No aplica</button>
+                        </div>
+                       -->
+                    </div>
+                    <hr>
                     
                      <div class="row">
                         <div class="col-md-1">
@@ -176,29 +220,30 @@
                             <input id="nombre_ficha" name="nombre_ficha" type="text" class="form-control input-sm" placeholder="Motivo consulta" >
                         </div>
                     </div>
-                    
                     <!--presion ALTA -->
-
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
                             <span>Presion alta</span>
                         </div>
                         <div class="col-md-1 col-sm-1">
-                            <select class="form-control" id="presion_alta" name="presion_alta">
-                                <option selected="selected" name="presion_alta" value="NO">NO</option>
-                                <option name="presion_alta" value="SI">SI</option>
+                            <select class="form-control" id="presion_alta_select">
+                                <option id="elegirpa" selected value="elegirpa">Elegir</option>
+                                <option id="SIpa" value="NO">NO</option>
+                                <option id="NOpa" value="SI">SI</option>
                             </select>
                         </div>
                     </div>
-                      <!--presion ALTA O BAJA -->
-                    <div class="row">
+                      <!--presion BAJA -->
+                     <div class="row">
                         <div class="col-md-1 col-sm-1">
-                            <span>Presion baja</span>
+                            <span>Presion Baja</span>
                         </div>
+                         
                         <div class="col-md-1 col-sm-1">
-                            <select class="form-control" id="presion_baja" name="presion_baja">
-                                <option selected="selected" name="presion_baja" value="NO">NO</option>
-                                <option name="presion_baja" value="SI">SI</option>
+                            <select class="form-control" id="presion_baja_select">
+                                <option id="elegipb" selected value="elegirpb">Elegir</option>
+                                <option id="SIpb" value="NO">NO</option>
+                                <option id="NOpb" value="SI">SI</option>
                             </select>
                         </div>
                     </div>
@@ -249,11 +294,6 @@
                           </div>
                       </div>
                       
-                      
-
-
-
-
                     <!-- ************     
                     <div class="row">
                         <div class="col-md-6">
@@ -418,6 +458,7 @@
                                         
                                 $("#botonAgregar").on('click', function () {
                                     if (validarFormulario()) {
+                                        
                                     agregarFicha();
                                     }  
                                 });
@@ -457,6 +498,19 @@
                                     $("#panelLinea").fadeOut("slow");
                                     $("#panelPrograma").fadeIn("slow");
                                 });
+                /*                
+                                function quitarcamposfemeninos(){
+                                  //  alert("HOLA");
+                                    var sexo = $("#nombre_sexo").val();
+                                   // alert(" SEXO "+ sexo)
+                                    if (sexo === "MASCULINO") {
+                                        $("#esfemenino").hide();
+                                     //   alert("SI");
+                                    }
+                                };
+                               */   
+  
+
 
         </script>
     </body>
