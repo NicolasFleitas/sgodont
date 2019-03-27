@@ -18,7 +18,6 @@
             <div class="panel-heading centrado">Servicios | Detalle</div>
             <div class="panel-body">
                 <form id="formLinea">
-
                     <div class="row">
                         <div class="col-md-1">
                             <span>Id Linea</span>
@@ -94,47 +93,47 @@
             <div class="panel-body">
                 <form id="formPrograma">
                     <div class="row">
-                        <div class="col-md-1">
-                            <span>Nº Ficha</span>
+                        <div class="col-md-1 col-sm-1 col-xs-3 ">
+                            <span>Nº</span>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1 col-xs-6">
                             <input id="id_ficha" name="id_ficha" type="text"
                                    class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event);">
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1 col-xs-3 ">
                             <button id="botonBuscarIdFicha" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
                    
                     <div class="row">
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1 col-xs-3 ">
                             <span>Fecha</span>
                         </div>
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-sm-2 col-xs-6 ">
                             <input id="fecha_ficha" name="fecha_ficha" type="date" class="form-control input-sm">
                         </div>
                     </div>
                     <!--DOCTORES-->
                     <div class="row">
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-1 col-xs-3 ">
                             <span>DR.</span>
                         </div>
                         
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-1 col-xs-6 ">
                             <input id="id_doctor" name="id_doctor" type="text"
                                    class="form-control input-sm" placeholder="Id">
                         </div>
                         
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1 col-xs-3 ">
                             <button id="botonBuscarIdDoctor" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
                         
-                        <div class="col-md-1">
-                            <span>NOMBRE</span>
+                        <div class="col-md-1 col-sm-1 ">
+                            <span>Nombre</span>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-sm-3 ">
                             <input id="nombre_doctor" name="nombre_doctor" type="text" class="form-control input-sm" placeholder="Nombre" readonly="" >
                         </div>
                         <hr>
@@ -143,37 +142,38 @@
                     
                     <!--PACIENTES-->
                     <div class="row">
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1 col-xs-3">
                             <span>Nro Pcte</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-1 col-xs-6">
                             <input id="id_paciente" name="id_paciente" type="text"
                                    class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event)">
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-1 col-xs-3">
                             <button id="botonBuscarIdPaciente" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
-                    <br>
-                    
+                   
                     <div class="row">
                         <div class="col-md-1">
                             <span>Paciente</span>
                         </div>
-                        <div class="col-md-3 col-sm-12">
+                        <div class="col-md-3 col-sm-3">
                             <input id="nombre_paciente" name="nombre_paciente" type="text" class="form-control input-sm" placeholder="Nombre" readonly="" >
                         </div>
-                        <div class="col-md-3 col-sm-12">
+                        <div class="col-md-3 col-sm-3">
                             <input id="apellido_paciente" name="apellido_paciente" type="text" class="form-control input-sm" placeholder="Apellido" readonly="" >
                         </div>
-                        
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-1">
+                            <span>Sexo</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
                             <input id="nombre_sexo" name="nombre_sexo" type="text" 
                                    class="form-control input-sm" placeholder="sexo" readonly="">
                         </div>
                     </div>
-                           
+                    <hr>    
                     <div class="row" id='esfemenino'>
                         <div class="col-md-1">
                             <span>Embarazo</span>
@@ -200,10 +200,10 @@
                             <input id="medico_tratante" name="medico_tratante" type="text" class="form-control input-sm" placeholder="medico">
                         </div>
                         <div class="col-md-1">
-                            <span>Nro Medico Tratante</span>
+                            <span>Telef medico</span>
                         </div>
                          <div class="col-md-1 col-sm-1">
-                             <input id="medico_tratante_nro" name="medico_tratante_nro" type="text" class="form-control input-sm" placeholder="medico nro">
+                             <input id="medico_tratante_nro" name="medico_tratante_nro" type="text" class="form-control input-sm" placeholder="telef med">
                         </div>
                        <!-- <div>
                             <button type="button" onclick="quitarcamposfemeninos()"> No aplica</button>
@@ -213,46 +213,46 @@
                     <hr>
                     
                      <div class="row">
-                        <div class="col-md-1">
+                        <div class="col-md-2 col-sm-2">
                             <span>Motivo de consulta</span>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-sm-3">
                             <input id="nombre_ficha" name="nombre_ficha" type="text" class="form-control input-sm" placeholder="Motivo consulta" >
                         </div>
                     </div>
+                    <br>
                     <!--presion ALTA -->
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
                             <span>Presion alta</span>
                         </div>
                         <div class="col-md-1 col-sm-1">
-                            <select class="form-control" id="presion_alta_select">
-                                <option id="elegirpa" selected value="elegirpa">Elegir</option>
+                            <select class="form-control" id="presion_alta_select" name="presion_alta_select">
+                                <option id="elegirpa" value="elegirpa">Elegir</option>
                                 <option id="SIpa" value="NO">NO</option>
                                 <option id="NOpa" value="SI">SI</option>
                             </select>
                         </div>
-                    </div>
-                      <!--presion BAJA -->
-                     <div class="row">
-                        <div class="col-md-1 col-sm-1">
-                            <span>Presion Baja</span>
+                        <!--presion BAJA -->
+                        <div class="col-md-2 col-sm-1">
+                            <span>Presion baja</span>
                         </div>
-                         
                         <div class="col-md-1 col-sm-1">
-                            <select class="form-control" id="presion_baja_select">
+                            <select class="form-control" id="presion_baja_select" name="presion_baja_select">
                                 <option id="elegipb" selected value="elegirpb">Elegir</option>
                                 <option id="SIpb" value="NO">NO</option>
                                 <option id="NOpb" value="SI">SI</option>
                             </select>
                         </div>
+                        
                     </div>
+                      <!--presion BAJA -->
                     
                     <div class="row">
                         <div class="col-md-1">
                             <span>Alergias</span>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6 col-sm-6">
                             <input id="alergias_paciente" name="alergias_paciente" type="text" class="form-control input-sm" placeholder="alergias" >
                         </div>
                     </div>
@@ -261,7 +261,7 @@
                           <div class="col-md-1">
                               <span>Vacunas</span>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-sm-6">
                               <input id="vacunas_paciente" name="vacunas_paciente" type="text" class="form-control input-sm" placeholder="vacunas" >
                           </div>
                       </div>
@@ -294,29 +294,6 @@
                           </div>
                       </div>
                       
-                    <!-- ************     
-                    <div class="row">
-                        <div class="col-md-6">
-                            <fieldset>
-                                <div class="form-group">
-                                    <label class="radio-inline">Presion alta</label>
-                                    <label class="radio-inline">
-                                        <input id="radio1" name="presion_alta" value="SI" type="radio">
-                                        Si
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input id="radio2" name="presion_alta" value="NO" type="radio">
-                                        No
-                                    </label>
-                                </div>
-                               
-                            </fieldset>
-                        </div>
-                    </div>
-                   <!-- <div class="radio disabled">
-                        <label><input type="radio" name="optradio" disabled>Option 3</label>
-                    </div>
-                    -->
                     
                 </form>
             </div> 
@@ -331,14 +308,14 @@
             <!-- **************************TABLA************************** -->
 
             <div id="detalle" hidden="">
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-fit table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Nº</th>
-                            <th>Cod Tratamiento</th>
+                            <th>Id</th>
+                            <th>Cod</th>    
                             <th>Tratamiento</th>
-                            <th class="centrado">Estado</th>
-                            <th class="centrado">Fecha Trat</th>
+                            <th class="">Estado</th>
+                            <th class="">Fecha Trat</th>
                             <th class="centrado">
                                 <button onclick="agregarLinea()" type="button" class="btn btn-primary btn-sm">
                                     <span class="glyphicon glyphicon-plus"></span></button></th>
@@ -411,25 +388,18 @@
                                 });
 
                                 /*DOCTORES*/
-                                $("#id_doctor").focusout(function (event) {
+                                    $("#id_doctor").focusout(function (event) {
                                     if ($("#id_doctor").val() === "") {
                                         $("#id_doctor").val("0");
                                     }
                                     buscarIdDoctor();
                                 });
-                                
-                                $("#botonBuscarIdDoctor").on('click', function () {
+                                 $("#botonBuscarIdDoctor").on('click', function () {
                                     $("#buscar").load("buscarDoctor.html");
                                     $("#buscar").fadeIn("slow");
                                     $("#panelPrograma").fadeOut("slow");
                                 });
-
-                                $("#botonBuscarIdHorario").on('click', function () {
-                                    $("#buscar").load("buscarHorario.html");
-                                    $("#buscar").fadeIn("slow");
-                                    $("#panelPrograma").fadeOut("slow");
-                                });
-                                
+                               
                                 //PACIENTES
                                 $("#id_paciente").focusout(function (event) {
                                     if ($("#id_paciente").val() === "") {

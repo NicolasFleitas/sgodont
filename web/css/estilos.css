@@ -38,6 +38,14 @@ body {
 tbody tr{
     cursor: pointer;
 }
+/*
+.table  {
+    white-space: nowrap;
+    width: 1%;
+}*/
+
+
+
 @media (max-width: 700px){
     .id{
         display: none;

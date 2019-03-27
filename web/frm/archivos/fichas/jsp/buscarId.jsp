@@ -1,4 +1,3 @@
-
 <%@page import="modelos.Servicios"%>
 <%@page import="java.util.Date"%>
 <%@page import="modelos.Pacientes"%>
@@ -19,14 +18,13 @@
     Fichas ficha = new Fichas();
     ficha.setId_ficha(id_ficha);
 
-    FichasControlador.buscarId(ficha);
-    
+    FichasControlador.buscarId(ficha);    
     if (ficha.getId_ficha() != 0) {
         tipo = "success";
         mensaje = "Datos encontrados";
         nuevo = "false";
     } 
-   String contenido_detalle = DetalleFichasControlador.buscarIdFicha(id_ficha);
+    String contenido_detalle = DetalleFichasControlador.buscarIdFicha(id_ficha);
 
     JSONObject obj = new JSONObject();
     obj.put("tipo", tipo);
@@ -48,15 +46,12 @@
     obj.put("alteraciones_sistem", ficha.getAlteraciones_sistem());
     obj.put("hab_nocivos", ficha.getHab_nocivos());
     obj.put("medicacion_actual", ficha.getMedicacion_actual());
-    
     obj.put("tiene_embarazo", ficha.getTiene_embarazo());
     obj.put("tiempo_gestacion", ficha.getTiempo_gestacion());
     obj.put("esta_amamantando", ficha.getEsta_amamantando());
     obj.put("medico_tratante", ficha.getMedico_tratante());
     obj.put("medico_tratante_nro", ficha.getMedico_tratante_nro());
-    
     obj.put("contenido_detalle", contenido_detalle);
-
     out.print(obj);
     out.flush();
 %>

@@ -349,6 +349,9 @@ function limpiarFormulario() {
     
     $("#id_sexo").val("");
     $("#nombre_sexo").val("");
+    
+    $("#id_gruposang").val("");
+    $("#nombre_gruposang").val("");
      
   }
 
@@ -392,6 +395,10 @@ function validarFormulario() {
         valor = false;
         $("#mensajes").html("Elija el peso del paciente");
         $("#peso_paciente").focus();
+    } else if ($("#nombre_gruposang").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Indique el grupo sang del paciente");
+        $("#id_gruposang").focus();
     } else if ($("#direccion_paciente").val().trim() === "") {
         valor = false;
         $("#mensajes").html("Indique la direccion del paciente");

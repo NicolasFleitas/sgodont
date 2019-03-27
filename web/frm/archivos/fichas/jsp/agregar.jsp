@@ -13,8 +13,10 @@
     String nombre_ficha = request.getParameter("nombre_ficha");    
     String sfecha_ficha = request.getParameter("fecha_ficha");
     java.sql.Date fecha_ficha = Utiles.stringToSqlDate(sfecha_ficha);    
-    String presion_alta = request.getParameter("presion_alta");
-    String presion_baja = request.getParameter("presion_baja");
+    String presion_alta = request.getParameter("presion_alta_select");
+    System.out.println("HTML PA: "+ presion_alta);
+    String presion_baja = request.getParameter("presion_baja_select");
+    System.out.println("HTML PB: "+ presion_baja);
     String alergias_paciente = request.getParameter("alergias_paciente");
     String vacunas_paciente = request.getParameter("vacunas_paciente");    
     String alteraciones_sistem = request.getParameter("alteraciones_sistem");

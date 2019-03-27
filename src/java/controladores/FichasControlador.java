@@ -38,6 +38,8 @@ public class FichasControlador {
                     + ficha.getEsta_amamantando() + "','"
                     + ficha.getMedico_tratante() + "','"
                     + ficha.getMedico_tratante_nro() + "')";
+            
+            System.out.println("SQL AGREGAR: "+ sql);
 
             try {
                 Conexion.getSt().executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
@@ -105,7 +107,7 @@ public class FichasControlador {
                     + "p.id_sexo = s.id_sexo"
                     + " and "
                     + "id_ficha =" + ficha.getId_ficha() + "";
-            System.out.println("FichasConBuscarId-->" + sql);
+            System.out.println("ControladorFichasbuscarId-->" + sql);
             try {
                 ResultSet rs = Conexion.getSt().executeQuery(sql);
                 if (rs.next()) { //Si encuentra el id traerá todos los datos

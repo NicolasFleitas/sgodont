@@ -20,11 +20,10 @@ function buscarIdFicha() {
             $("#nombre_paciente").val(json.nombre_paciente);  
             $("#apellido_paciente").val(json.apellido_paciente); 
             $("#nombre_sexo").val(json.nombre_sexo); 
-            $("#presion_alta").val(json.presion_alta);
-            $("#presion_baja").val(json.presion_baja);            
+            $("#presion_alta_select").val(json.presion_alta);
+            $("#presion_baja_select").val(json.presion_baja);
             $("#alergias_paciente").val(json.alergias_paciente);
             $("#vacunas_paciente").val(json.vacunas_paciente);
-            
             /*Si es femenino*/
             $("#tiene_embarazo").val(json.tiene_embarazo);
             $("#tiempo_gestacion").val(json.tiempo_gestacion);
@@ -32,11 +31,9 @@ function buscarIdFicha() {
             $("#medico_tratante").val(json.medico_tratante);
             $("#medico_tratante_nro").val(json.medico_tratante_nro);
             /* ********* */
-            
             $("#alteraciones_sistem").val(json.alteraciones_sistem);
             $("#hab_nocivos").val(json.hab_nocivos);
             $("#medicacion_actual").val(json.medicacion_actual);
-            
             $("#contenidoDetalle").html(json.contenido_detalle);
             
            /* if (json.nombre_ficha === "PENDIENTE") {
@@ -44,6 +41,7 @@ function buscarIdFicha() {
            } else {
                 $("#botonFacturar").prop('disabled', true);
            }*/
+            
             quitarcamposfemeninos();
             if (json.nuevo === "true") {
                $("#botonAgregar").prop('disabled', false);
@@ -638,7 +636,6 @@ function limpiarFormulario(){
         $("#medicacion_actual").val("");
         
         $("#nombre_sexo").val("");
-       
     }
     
  
@@ -681,11 +678,11 @@ function limpiarFormulario(){
     } else if ($("#presion_alta_select").val() === "elegirpa") {
         $("#mensajes").html("El campo de presion ALTA no puede estar vacio");
         valor = false;
-        $("#presion_alta").focus();
+        $("#presion_alta_select").focus();
     } else if ($("#presion_baja_select").val() === "elegirpb") {
         $("#mensajes").html("El campo de presion BAJA no puede estar vacio");
         valor = false;
-        $("#presion_alta").focus();
+        $("#presion_baja_select").focus();
     }
       else if ($("#alergias_paciente").val().trim() === "") {
         valor = false;

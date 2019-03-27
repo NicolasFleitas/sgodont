@@ -25,18 +25,15 @@
                         <div class="col-md-1 col-sm-1">
                             <span>Cod</span>
                         </div>
-                        <div class="col-md-1 col-sm-2">
+                        <div class="col-md-1 col-sm-1">
                             <input id="id_paciente" name="id_paciente" type="text" class="form-control input-sm" placeholder="cod"
                                    onkeypress=" return SoloNumeros(event)">
                         </div>
                         <div class="col-md-1 col-sm-1">
                             <button id="botonBuscarIdPaciente" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-1  col-sm-1">
+                        
+                         <div class="col-md-1  col-sm-1">
                             <span>C.I:</span>
                         </div>
                         <div class="col-md-2 col-sm-2">
@@ -49,23 +46,19 @@
                         <div class="col-md-1  col-sm-1">
                             <span>Nombre</span>
                         </div>
-                        <div class="col-md-1  col-sm-3">
+                        <div class="col-md-2  col-sm-2">
                             <input id="nombre_paciente" name="nombre_paciente" type="text" class="form-control input-sm"
                                    placeholder="Nombre" onkeypress=" return soloLetras(event)" onkeyup="this.value = this.value.toUpperCase()">
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-1 col-sm-1">
+                        
+                         <div class="col-md-1 col-sm-1">
                             <span>Apellido</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="apellido_paciente" name="apellido_paciente" type="text" class="form-control input-sm"
                                    placeholder="Apellido" onkeypress=" return soloLetras(event)" onkeyup="this.value = this.value.toUpperCase()">
                         </div>
                     </div>
-
-
 
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
@@ -87,9 +80,7 @@
                         <div class="col-md-1 col-sm-1">
                             <button id="botonBuscarIdSexo" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
-                    </div>
-
-                    <div class="row">
+                        
                         <div class="col-md-1 col-sm-1">
                             <span>Sexo</span>
                         </div>
@@ -97,7 +88,8 @@
                             <input readonly="" id="nombre_sexo" name="nombre_sexo" type="text" class="form-control input-sm"
                                    onkeyup="this.value = this.value.toUpperCase()">
                         </div>
-                    </div> 
+                        
+                    </div>
 
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
@@ -107,41 +99,36 @@
                             <input id="altura_paciente" name="altura_paciente" type="text" class="form-control input-sm"
                                    placeholder="altura">
                         </div>
-                    </div>
-
-                    <div class="row">
+                        
                         <div class="col-md-1 col-sm-1">
                             <span>Peso Kg</span>
                         </div>
-                        <div class="col-md-1 col-sm-2">
+                        <div class="col-md-1 col-sm-1">
                             <input id="peso_paciente" name="peso_paciente" type="text" class="form-control input-sm"
                                    placeholder="peso">
                         </div>
                     </div>
                     
-
                     <div class="row">
-                        <div class="col-md-1">
-                            <span>Id</span>
+                        <div class="col-md-1 col-sm-1">
+                            <span>ID GS</span>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <input id="id_gruposang" name="id_gruposang" type="text" class="form-control input-sm" placeholder="Id"
                                    onkeypress="return SoloNumeros(event)">
                         </div>
 
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <button id="botonBuscarIdGrupoSanguineo" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-1">
-                            <span>Grupo Sanguineo</span>
+                         <div class="col-md-2 col-sm-2">
+                            <span>G. Sang</span>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <input id="nombre_gruposang" name="nombre_gruposang" type="text" class="form-control input-sm"
                                    placeholder="grupo sang" readonly="">
                         </div>
+                        
                     </div>
 
                     <div class="row">
@@ -158,20 +145,21 @@
                         <div class="col-md-1 col-sm-1">
                             <span>Teléf.:</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="telefono_paciente" name="telefono_paciente" type="text" class="form-control input-sm"
                                    placeholder="telefono paciente">
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <span>Celular</span>
+                        </div>
+                        <div class="col-md-2 col-sm-2">
+                            <input id="celular_paciente" name="celular_paciente" type="text" class="form-control input-sm"
+                                   placeholder="nro celular">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-1 col-sm-1">
-                            <span>Celular</span>
-                        </div>
-                        <div class="col-md-1 col-sm-3">
-                            <input id="celular_paciente" name="celular_paciente" type="text" class="form-control input-sm"
-                                   placeholder="nro celular">
-                        </div>
+                        
                     </div>  
 
                     <div class="row">
@@ -188,11 +176,11 @@
                         <div class="col-md-1 col-sm-1">
                             <span>Profesion</span>
                         </div>
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="profesion_paciente" name="profesion_paciente" type="text" class="form-control input-sm" placeholder="profesion">
                         </div>
-                        <div class="col-md-2 col-sm-2">
-                            <span>Lugar de trabajo</span>
+                        <div class="col-md-1 col-sm-1">
+                            <span>Lugar trabajo</span>
                         </div>
                         <div class="col-md-2 col-sm-2">
                             <input id="lugar_trabajo" name="lugar_trabajo" type="text" class="form-control input-sm"
@@ -201,10 +189,10 @@
                     </div> 
 
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <span>Seguro medico</span>
+                        <div class="col-md-1 col-sm-1">
+                            <span>Seguro Med</span>
                         </div>
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-3 col-sm-3">
                             <input id="seguro_paciente" name="seguro_paciente" type="text" class="form-control input-sm" placeholder="seguro ">
                         </div>
                     </div>  
@@ -304,6 +292,18 @@
         $("#panelPrograma").fadeOut("slow");
         });
         
+        $("#id_gruposang").focusout(function (event) {
+            if ($("#id_gruposang").val() === "") {
+                $("#id_gruposang").val("0");
+            }
+            buscarIdGrupoSanguineo();
+        });
+        $("#botonBuscarIdGrupoSanguineo").on('click', function () {
+            $("#buscar").load("buscarGrupoSanguineo.html");
+            $("#buscar").fadeIn("slow");
+            $("#panelPrograma").fadeOut("slow");
+        });
+     
         </script>
     </body>
 

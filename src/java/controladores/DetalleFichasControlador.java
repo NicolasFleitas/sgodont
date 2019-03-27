@@ -79,13 +79,13 @@ public class DetalleFichasControlador {
                     detalleficha.setObs_detalleficha(rs.getString("obs_detalleficha"));
                     detalleficha.setMedicacion_detalleficha(rs.getString("medicacion_detalleficha"));
                     detalleficha.setFecha_detalleficha(rs.getDate("fecha_detalleficha"));
-                    System.out.println("****CON DETALLEFICHA**********");
+                    /*System.out.println("****CON DETALLEFICHA**********");
                     System.out.println("ID_detalleficha : " + detalleficha.getId_detalleficha());
                     System.out.println(" ESTADO: " + detalleficha.getEstado_detalleficha());
                     System.out.println("SERVICIO: " + detalleficha.getServicio().getNombre_servicio());
                     System.out.println("FECHA DF: " + detalleficha.getFecha_detalleficha());
                     System.out.println("**************");
-
+*/
                 } else {
                     detalleficha.setId_detalleficha(0);
 
