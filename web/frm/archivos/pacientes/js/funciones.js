@@ -128,7 +128,8 @@ function buscarIdPaciente() {
             $("#apellido_paciente").val(json.apellido_paciente);            
             $("#fechanac_paciente").val(json.fechanac_paciente);            
             $("#altura_paciente").val(json.altura_paciente);
-            $("#peso_paciente").val(json.peso_paciente);            
+            $("#peso_paciente").val(json.peso_paciente);        
+            $("#nombre_gruposang").val(json.nombre_gruposang);//GRUPO DE SANGRE
             $("#direccion_paciente").val(json.direccion_paciente);            
             $("#telefono_paciente").val(json.telefono_paciente);
             $("#celular_paciente").val(json.celular_paciente);
@@ -139,6 +140,9 @@ function buscarIdPaciente() {
             
             $("#id_sexo").val(json.id_sexo);
             $("#nombre_sexo").val(json.nombre_sexo);
+            $("#id_gruposang").val(json.id_gruposang);
+            $("#nombre_gruposang").val(json.nombre_gruposang);
+            
             // console.log(json.nuevo);
             if (json.nuevo === "true") {
                 $("#botonAgregar").prop('disabled', false);
@@ -260,6 +264,69 @@ function buscarNombreSexo() {
         }
     });
 }
+/*GRUPOS SANGUINEOS*/
+function buscarIdGrupoSanguineo() {
+    var datosFormulario = $("#formPrograma").serialize();
+    $.ajax({
+        type: 'POST',
+        url: 'jsp/buscarIdGrupoSanguineo.jsp',
+        data: datosFormulario,
+        dataType: 'json',
+        beforeSend: function (objeto) {
+            $("#mensajes").html("Enviando datos al Servidor ...");
+        },
+        success: function (json) {
+            $("#mensajes").html(json.mensaje);
+            $("#id_gruposang").val(json.id_gruposang);
+            $("#nombre_gruposang").val(json.nombre_gruposang);
+        },
+        error: function (e) {
+            $("#mensajes").html("No se pudo modificar los datos.");
+        },
+        complete: function (objeto, exito, error) {
+            if (exito === "success") {}
+        }
+    });
+}
+
+function buscarNombreGrupoSanguineo() {
+    var datosFormulario = $("#formBuscar").serialize();
+
+    $.ajax({
+        type: 'POST',
+        url: 'jsp/buscarNombreGrupoSanguineo.jsp',
+        data: datosFormulario,
+        dataType: 'json',
+        beforeSend: function (objeto) {
+            $("#mensajes").html("Enviando datos al Servidor ...");
+            $("#contenidoBusqueda").css("display", "none");
+        },
+        success: function (json) {
+            $("#mensajes").html(json.mensaje);
+            $("#contenidoBusqueda").html(json.contenido);
+            $("#contenidoBusqueda").fadeIn("slow");
+            $("tbody tr").on("click", function () {
+                var id = $(this).find("td:first").html();
+                $("#panelBuscar").html("");
+                $("#id_gruposang").val(id);
+                $("#nombre_gruposang").focus();
+                buscarIdGrupoSanguineo();
+                $("#buscar").fadeOut("slow");
+                $("#panelPrograma").fadeIn("slow");
+            });
+        },
+        error: function (e) {
+            $("#mensajes").html("No se pudo modificar los datos.");
+        },
+        complete: function (objeto, exito, error) {
+            if (exito === "success") {
+
+            }
+        }
+    });
+}
+
+
 
 
 function limpiarFormulario() {

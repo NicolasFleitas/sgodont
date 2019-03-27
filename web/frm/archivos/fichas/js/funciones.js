@@ -303,6 +303,7 @@ function buscarNombreDoctor() {
 //PACIENTES
 function buscarIdPaciente() {
     var datosFormulario = $("#formPrograma").serialize();
+
     $.ajax({
         type: 'POST',
         url: 'jsp/buscarIdPaciente.jsp',
@@ -319,7 +320,8 @@ function buscarIdPaciente() {
             $("#apellido_paciente").val(json.apellido_paciente);            
             $("#fechanac_paciente").val(json.fechanac_paciente);            
             $("#altura_paciente").val(json.altura_paciente);
-            $("#peso_paciente").val(json.peso_paciente);            
+            $("#peso_paciente").val(json.peso_paciente);        
+            $("#nombre_gruposang").val(json.nombre_gruposang);//GRUPO DE SANGRE
             $("#direccion_paciente").val(json.direccion_paciente);            
             $("#telefono_paciente").val(json.telefono_paciente);
             $("#celular_paciente").val(json.celular_paciente);
@@ -330,7 +332,9 @@ function buscarIdPaciente() {
             
             $("#id_sexo").val(json.id_sexo);
             $("#nombre_sexo").val(json.nombre_sexo);
-            quitarcamposfemeninos();
+            $("#id_gruposang").val(json.id_gruposang);
+            $("#nombre_gruposang").val(json.nombre_gruposang);
+            
             // console.log(json.nuevo);
             
         },
@@ -342,6 +346,7 @@ function buscarIdPaciente() {
         }
     });
 }
+
 function buscarNombrePaciente() {
     var datosFormulario = $("#formBuscar").serialize();
 
@@ -608,6 +613,7 @@ function eliminarDetalleFicha() {
     });
 }
 
+
 function limpiarFormulario(){
         $("#id_ficha").val("0");
         $("#nombre_ficha").val("");
@@ -631,7 +637,11 @@ function limpiarFormulario(){
         $("#alteraciones_sistem").val("");
         $("#hab_nocivos").val("");
         $("#medicacion_actual").val("");
+        
+        $("#nombre_sexo").val("");
+       
     }
+    
  
   function validarFormulario() {
       var valor = true;

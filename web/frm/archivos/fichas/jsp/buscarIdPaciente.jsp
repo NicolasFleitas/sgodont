@@ -1,4 +1,4 @@
-
+<%@page import="modelos.GrupoSanguineos"%>
 <%@page import="modelos.Sexos"%>
 <%@page import="controladores.PacientesControlador"%>
 <%@page import="modelos.Pacientes"%>
@@ -9,7 +9,8 @@
     
     String tipo = "error";
     String mensaje = "Datos no encontrados.";
-        String nuevo = "true";
+    String nuevo = "true";
+    
         Pacientes paciente = new Pacientes();
         paciente.setId_paciente(id_paciente);
 
@@ -18,29 +19,7 @@
             tipo = "success";
             mensaje = "Datos encontrados.";
             nuevo = "false";
-        } else {
-            paciente.setId_paciente(0);
-            paciente.setCi_paciente(0);
-            paciente.setNombre_paciente("");
-            paciente.setApellido_paciente("");
-         // paciente.setFechanac_paciente("");
-            paciente.setAltura_paciente("");
-            paciente.setPeso_paciente(0);
-
-            paciente.setDireccion_paciente("");
-            paciente.setTelefono_paciente("");
-            paciente.setCelular_paciente("");
-            paciente.setEmail_paciente("");
-
-            paciente.setProfesion_paciente("");
-            paciente.setLugar_trabajo("");
-            paciente.setSeguro_paciente("");
-
-            Sexos sexo = new Sexos();
-            sexo.setId_sexo(0);
-            sexo.setNombre_sexo("");
-            paciente.setSexo(sexo);
-        }
+        } 
     
     JSONObject obj = new JSONObject();
     obj.put("tipo", tipo);
@@ -59,10 +38,11 @@
     obj.put("email_paciente", paciente.getEmail_paciente()); 
     obj.put("profesion_paciente", paciente.getProfesion_paciente());     
     obj.put("lugar_trabajo", paciente.getLugar_trabajo());
-    obj.put("seguro_paciente", paciente.getSeguro_paciente());
-    
+    obj.put("seguro_paciente", paciente.getSeguro_paciente()); 
     obj.put("id_sexo", paciente.getSexo().getId_sexo());
     obj.put("nombre_sexo", paciente.getSexo().getNombre_sexo());
+    obj.put("id_gruposang", paciente.getGruposang().getId_gruposang());
+    obj.put("nombre_gruposang", paciente.getGruposang().getNombre_gruposang());
     
     out.print(obj);
     out.flush();

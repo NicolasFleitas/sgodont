@@ -1,4 +1,5 @@
 
+<%@page import="modelos.GrupoSanguineos"%>
 <%@page import="utiles.Utiles"%>
 <%@page import="modelos.Sexos"%>
 <%@page import="controladores.PacientesControlador"%>
@@ -26,7 +27,10 @@
     Sexos sexo = new Sexos();
     sexo.setId_sexo(id_sexo);
     
-
+    int id_gruposang = Integer.parseInt(request.getParameter("id_gruposang"));
+    GrupoSanguineos gruposang = new GrupoSanguineos();
+    gruposang.setId_gruposang(id_gruposang);
+    
     String tipo = "error";
     String mensaje = "Datos no modificados.";
 
@@ -46,6 +50,8 @@
     paciente.setLugar_trabajo(lugar_trabajo);
     paciente.setSeguro_paciente(seguro_paciente);
     
+    
+    paciente.setGruposang(gruposang);   
     paciente.setSexo(sexo);
     
     if (PacientesControlador.modificar(paciente)) {

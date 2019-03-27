@@ -78,7 +78,7 @@
 
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
-                            <span>Id S</span>
+                            <span>Cod Sexo</span>
                         </div>
                         <div class="col-md-1 col-sm-1">
                             <input id="id_sexo" name="id_sexo" type="text" class="form-control input-sm" placeholder="Id sexo"
@@ -87,7 +87,6 @@
                         <div class="col-md-1 col-sm-1">
                             <button id="botonBuscarIdSexo" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
-
                     </div>
 
                     <div class="row">
@@ -119,12 +118,37 @@
                                    placeholder="peso">
                         </div>
                     </div>
+                    
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Id</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="id_gruposang" name="id_gruposang" type="text" class="form-control input-sm" placeholder="Id"
+                                   onkeypress="return SoloNumeros(event)">
+                        </div>
+
+                        <div class="col-md-1">
+                            <button id="botonBuscarIdGrupoSanguineo" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span>Grupo Sanguineo</span>
+                        </div>
+                        <div class="col-md-1">
+                            <input id="nombre_gruposang" name="nombre_gruposang" type="text" class="form-control input-sm"
+                                   placeholder="grupo sang" readonly="">
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-1 col-sm-1">
                             <span>Direccion:</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
+                        <div class="col-md-3 col-sm-3">
                             <input id="direccion_paciente" name="direccion_paciente" type="text" class="form-control input-sm"
                                    placeholder="direccion">
                         </div>
@@ -154,7 +178,7 @@
                         <div class="col-md-1 col-sm-1">
                             <span>Email</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="email_paciente" name="email_paciente" type="text" class="form-control input-sm"
                                    placeholder="email">
                         </div>
@@ -164,29 +188,24 @@
                         <div class="col-md-1 col-sm-1">
                             <span>Profesion</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
-                            <input id="profesion_paciente" name="profesion_paciente" type="text" class="form-control input-sm"
-                                   placeholder="profesion">
+                        <div class="col-md-3 col-sm-3">
+                            <input id="profesion_paciente" name="profesion_paciente" type="text" class="form-control input-sm" placeholder="profesion">
                         </div>
-                    </div>  
-
-                    <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <span>Lugar de trabajo</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="lugar_trabajo" name="lugar_trabajo" type="text" class="form-control input-sm"
                                    placeholder="lugar de trabajo">
                         </div>
-                    </div>  
+                    </div> 
 
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <span>Seguro medico</span>
                         </div>
-                        <div class="col-md-1 col-sm-3">
-                            <input id="seguro_paciente" name="seguro_paciente" type="text" class="form-control input-sm"
-                                   value="sin seguro" placeholder="seguro medico">
+                        <div class="col-md-2 col-sm-2">
+                            <input id="seguro_paciente" name="seguro_paciente" type="text" class="form-control input-sm" placeholder="seguro ">
                         </div>
                     </div>  
 

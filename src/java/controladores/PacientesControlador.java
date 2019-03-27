@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import modelos.GrupoSanguineos;
 
 
 public class PacientesControlador {
@@ -42,7 +43,7 @@ public class PacientesControlador {
                     + "fechanac_paciente,altura_paciente,peso_paciente,"
                     + "direccion_paciente,telefono_paciente,celular_paciente,"
                     + "email_paciente,profesion_paciente,lugar_trabajo,seguro_paciente,"
-                    + "id_sexo) " 
+                    + "id_sexo,id_gruposang) " 
                     + "values ('" + paciente.getCi_paciente()+ "','"
                     + paciente.getNombre_paciente()+ "','"
                     + paciente.getApellido_paciente()+ "','"
@@ -56,7 +57,8 @@ public class PacientesControlador {
                     + paciente.getProfesion_paciente()+ "','" 
                     + paciente.getLugar_trabajo()+ "','" 
                     + paciente.getSeguro_paciente()+ "','"
-                    + paciente.getSexo().getId_sexo() + "')";
+                    + paciente.getSexo().getId_sexo() + "','"
+                    + paciente.getGruposang().getId_gruposang()+ "')";
             
                   System.out.println("sql"+ sql);  
             try {
@@ -87,7 +89,8 @@ public class PacientesControlador {
                     + "profesion_paciente='" + paciente.getProfesion_paciente()+ "',"
                     + "lugar_trabajo='" + paciente.getLugar_trabajo() + "',"
                     + "seguro_paciente='" + paciente.getSeguro_paciente()+ "',"
-                    + "id_sexo='" + paciente.getSexo().getId_sexo() + "'"
+                    + "id_sexo='" + paciente.getSexo().getId_sexo() + "',"
+                    + "id_gruposang='" + paciente.getGruposang().getId_gruposang()+ "'"
                     + " where id_paciente=" + paciente.getId_paciente();
                     
             try {
@@ -123,41 +126,77 @@ public class PacientesControlador {
     }
     
     public static Pacientes buscarId(Pacientes paciente) {
-        if (Conexion.conectar()){
-            String sql = "select * from pacientes p , sexos sex"
+        if (Conexion.conectar()) {
+            String sql = "select * from pacientes p , sexos sex, gruposanguineos sg"
                     + " where "
                     + "p.id_sexo = sex.id_sexo "
                     + " and "
-                    + "id_paciente ='"+paciente.getId_paciente()+"'";
-            
+                    + "p.id_gruposang = sg.id_gruposang "
+                    + " and "
+                    + "id_paciente ='" + paciente.getId_paciente() + "'";
+            System.out.println("buscarID " + sql);
+
             try {
                 ResultSet rs = Conexion.getSt().executeQuery(sql);
-                if (rs.next()){
+                if (rs.next()) {
                     paciente.setId_paciente(rs.getInt("id_paciente"));
                     paciente.setCi_paciente(rs.getInt("ci_paciente"));
                     paciente.setNombre_paciente(rs.getString("nombre_paciente"));
                     paciente.setApellido_paciente(rs.getString("apellido_paciente"));
-                    paciente.setFechanac_paciente(rs.getDate("fechanac_paciente"));  
-                    
+                    paciente.setFechanac_paciente(rs.getDate("fechanac_paciente"));
+
                     paciente.setAltura_paciente(rs.getString("altura_paciente"));
                     paciente.setPeso_paciente(rs.getInt("peso_paciente"));
-                    
+
                     paciente.setDireccion_paciente(rs.getString("direccion_paciente"));
-                    paciente.setTelefono_paciente(rs.getString("telefono_paciente"));  
+                    paciente.setTelefono_paciente(rs.getString("telefono_paciente"));
                     paciente.setCelular_paciente(rs.getString("celular_paciente"));
                     paciente.setEmail_paciente(rs.getString("email_paciente"));
                     paciente.setProfesion_paciente(rs.getString("profesion_paciente"));
-                    
+
                     paciente.setLugar_trabajo(rs.getString("lugar_trabajo"));
-                    paciente.setSeguro_paciente(rs.getString("seguro_paciente"));    
-                    
+                    paciente.setSeguro_paciente(rs.getString("seguro_paciente"));
+
                     Sexos sexo = new Sexos();
                     sexo.setId_sexo(rs.getInt("id_sexo"));
                     sexo.setNombre_sexo(rs.getString("nombre_sexo"));
+
+                    GrupoSanguineos gruposang = new GrupoSanguineos();
+                    gruposang.setId_gruposang(rs.getInt("id_gruposang"));
+                    gruposang.setNombre_gruposang(rs.getString("nombre_gruposang"));
                     
+                    paciente.setGruposang(gruposang);
                     paciente.setSexo(sexo);
-                } 
-                
+                    
+                } else {
+                    paciente.setId_paciente(0);
+                    paciente.setCi_paciente(0);
+                    paciente.setNombre_paciente("");
+                    paciente.setApellido_paciente("");
+                    // paciente.setFechanac_paciente("");
+                    paciente.setAltura_paciente("");
+                    paciente.setPeso_paciente(0);
+
+                    paciente.setDireccion_paciente("");
+                    paciente.setTelefono_paciente("");
+                    paciente.setCelular_paciente("");
+                    paciente.setEmail_paciente("");
+
+                    paciente.setProfesion_paciente("");
+                    paciente.setLugar_trabajo("");
+                    paciente.setSeguro_paciente("");
+
+                    Sexos sexo = new Sexos();
+                    sexo.setId_sexo(0);
+                    sexo.setNombre_sexo("");
+                    paciente.setSexo(sexo);
+                    
+                    GrupoSanguineos gruposang = new GrupoSanguineos();
+                    gruposang.setId_gruposang(0);
+                    gruposang.setNombre_gruposang("");
+                    paciente.setGruposang(gruposang);
+                }
+
             } catch (SQLException ex) {
                 System.out.println("Error: " + ex);
             }
