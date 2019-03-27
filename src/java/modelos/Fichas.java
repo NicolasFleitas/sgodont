@@ -7,8 +7,7 @@ public class Fichas {
     private Pacientes paciente;
     private String nombre_ficha;
     private Date fecha_ficha;
-    private String presion_alta;
-    private String presion_baja;
+    
     private String alergias_paciente;
     private String vacunas_paciente;
     private String alteraciones_sistem;
@@ -19,19 +18,24 @@ public class Fichas {
     private String esta_amamantando;
     private String medico_tratante;
     private String medico_tratante_nro;
-  
-
+    /*TieneTuvo*/
+    private String presion_alta;
+    private String presion_baja;
+    private String fiebre_reumatica;
+    private String desmayos;
+    private String marcapasos_cardiacos;
+    private String trat_radio_quimio;
+    private String tienetuvo_especificar;
+    /*FinTieneTuvo*/
     public Fichas() {
     }
 
-    public Fichas(int id_ficha, Doctores doctor, Pacientes paciente, String nombre_ficha, Date fecha_ficha, String presion_alta, String presion_baja, String alergias_paciente, String vacunas_paciente, String alteraciones_sistem, String hab_nocivos, String medicacion_actual, String tiene_embarazo, String tiempo_gestacion, String esta_amamantando, String medico_tratante, String medico_tratante_nro) {
+    public Fichas(int id_ficha, Doctores doctor, Pacientes paciente, String nombre_ficha, Date fecha_ficha, String alergias_paciente, String vacunas_paciente, String alteraciones_sistem, String hab_nocivos, String medicacion_actual, String tiene_embarazo, String tiempo_gestacion, String esta_amamantando, String medico_tratante, String medico_tratante_nro, String presion_alta, String presion_baja, String fiebre_reumatica, String desmayos, String marcapasos_cardiacos, String trat_radio_quimio, String tienetuvo_especificar) {
         this.id_ficha = id_ficha;
         this.doctor = doctor;
         this.paciente = paciente;
         this.nombre_ficha = nombre_ficha;
         this.fecha_ficha = fecha_ficha;
-        this.presion_alta = presion_alta;
-        this.presion_baja = presion_baja;
         this.alergias_paciente = alergias_paciente;
         this.vacunas_paciente = vacunas_paciente;
         this.alteraciones_sistem = alteraciones_sistem;
@@ -42,8 +46,57 @@ public class Fichas {
         this.esta_amamantando = esta_amamantando;
         this.medico_tratante = medico_tratante;
         this.medico_tratante_nro = medico_tratante_nro;
+        this.presion_alta = presion_alta;
+        this.presion_baja = presion_baja;
+        this.fiebre_reumatica = fiebre_reumatica;
+        this.desmayos = desmayos;
+        this.marcapasos_cardiacos = marcapasos_cardiacos;
+        this.trat_radio_quimio = trat_radio_quimio;
+        this.tienetuvo_especificar = tienetuvo_especificar;
     }
 
+   
+    public String getFiebre_reumatica() {
+        return fiebre_reumatica;
+    }
+
+    public void setFiebre_reumatica(String fiebre_reumatica) {
+        this.fiebre_reumatica = fiebre_reumatica;
+    }
+
+    public String getDesmayos() {
+        return desmayos;
+    }
+    
+    public void setDesmayos(String desmayos) {
+        this.desmayos = desmayos;
+    }
+    
+    public String getMarcapasos_cardiacos() {
+        return marcapasos_cardiacos;
+    }
+
+    public void setMarcapasos_cardiacos(String marcapasos_cardiacos) {
+        this.marcapasos_cardiacos = marcapasos_cardiacos;
+    }
+
+    public String getTrat_radio_quimio() {
+        return trat_radio_quimio;
+    }
+
+    public void setTrat_radio_quimio(String trat_radio_quimio) {
+        this.trat_radio_quimio = trat_radio_quimio;
+    }
+
+    public String getTienetuvo_especificar() {
+        return tienetuvo_especificar;
+    }
+
+    public void setTienetuvo_especificar(String tienetuvo_especificar) {
+        this.tienetuvo_especificar = tienetuvo_especificar;
+    }
+
+   
     public String getTiene_embarazo() {
         return tiene_embarazo;
     }

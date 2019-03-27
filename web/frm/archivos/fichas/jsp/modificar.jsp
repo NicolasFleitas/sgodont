@@ -12,8 +12,6 @@
     String nombre_ficha = request.getParameter("nombre_ficha");
     String sfecha_ficha = request.getParameter("fecha_ficha");
     java.sql.Date fecha_ficha = Utiles.stringToSqlDate(sfecha_ficha);
-    String presion_alta = request.getParameter("presion_alta_select");
-    String presion_baja = request.getParameter("presion_baja_select");
     String alergias_paciente = request.getParameter("alergias_paciente");
     String vacunas_paciente = request.getParameter("vacunas_paciente");
     String alteraciones_sistem = request.getParameter("alteraciones_sistem");
@@ -24,6 +22,16 @@
     String esta_amamantando = request.getParameter("esta_amamantando");
     String medico_tratante = request.getParameter("medico_tratante");
     String medico_tratante_nro = request.getParameter("medico_tratante_nro");
+    
+     /*TieneTuvo*/
+    String presion_alta = request.getParameter("presion_alta_select");
+    String presion_baja = request.getParameter("presion_baja_select");    
+    String fiebre_reumatica = request.getParameter("fiebre_reumatica_select");
+    String desmayos = request.getParameter("desmayos_select");
+    String marcapasos_cardiacos = request.getParameter("marcapasos_cardiacos_select");
+    String trat_radio_quimio = request.getParameter("trat_radio_quimio_select");
+    String tienetuvo_especificar = request.getParameter("tienetuvo_especificar");
+    /*Fin TieneTuvo*/
   
     Doctores doctor = new Doctores();
     doctor.setId_doctor(id_doctor);
@@ -51,6 +59,15 @@
     ficha.setEsta_amamantando(esta_amamantando);
     ficha.setMedico_tratante(medico_tratante);
     ficha.setMedico_tratante_nro(medico_tratante_nro);
+     /*TieneTuvo*/
+    ficha.setPresion_alta(presion_alta);
+    ficha.setPresion_baja(presion_baja);
+    ficha.setFiebre_reumatica(fiebre_reumatica);
+    ficha.setDesmayos(desmayos);
+    ficha.setMarcapasos_cardiacos(marcapasos_cardiacos);
+    ficha.setTrat_radio_quimio(trat_radio_quimio);
+    ficha.setTienetuvo_especificar(tienetuvo_especificar);
+    /*FinTieneTuvo*/
     
    if (FichasControlador.modificar(ficha)){
        tipo = "success";

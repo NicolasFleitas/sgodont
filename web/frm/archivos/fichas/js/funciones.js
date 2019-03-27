@@ -22,6 +22,15 @@ function buscarIdFicha() {
             $("#nombre_sexo").val(json.nombre_sexo); 
             $("#presion_alta_select").val(json.presion_alta);
             $("#presion_baja_select").val(json.presion_baja);
+            
+            /*TIENE TUVO*/
+             $("#fiebre_reumatica_select").val(json.fiebre_reumatica);
+             $("#desmayos_select").val(json.desmayos);
+             $("#marcapasos_cardiacos_select").val(json.marcapasos_cardiacos);
+             $("#trat_radio_quimio_select").val(json.trat_radio_quimio);
+             $("#tienetuvo_especificar").val(json.tienetuvo_especificar);        
+            /* ------ */
+            
             $("#alergias_paciente").val(json.alergias_paciente);
             $("#vacunas_paciente").val(json.vacunas_paciente);
             /*Si es femenino*/
@@ -619,7 +628,6 @@ function limpiarFormulario(){
         $("#nombre_paciente").val("");
         $("#id_doctor").val("");
         $("#nombre_doctor").val("");
-       // $("#presion_alta").val("");
        
        $("#tiene_embarazo").val("");
        $("#tiempo_gestacion").val("");
@@ -633,41 +641,18 @@ function limpiarFormulario(){
        
         $("#alteraciones_sistem").val("");
         $("#hab_nocivos").val("");
-        $("#medicacion_actual").val("");
-        
+        $("#medicacion_actual").val("");        
         $("#nombre_sexo").val("");
     }
     
  
   function validarFormulario() {
       var valor = true;
-    /*if ($("#id_doctor").val().trim() === "") {
-        valor = false;
-        $("#mensajes").html("Seleccione un doctor");
-        $("#id_doctor").focus();
-    } else if ($("#id_doctor").val().trim() == 0) {
-        valor = false;
-        $("#mensajes").html("Seleccione un doctor");
-        $("#id_doctor").focus();
-    } else
-    */ if ($("#nombre_doctor").val().trim() === "") {
+    if ($("#nombre_doctor").val().trim() === "") {
         valor = false;
         $("#mensajes").html("Doctor no puede estar vacio");
         $("#id_doctor").focus();
-        /*Paciente*/
-    }
-    /*else if ($("#id_paciente").val().trim() === "") {
-        valor = false;
-        $("#mensajes").html("Seleccione un paciente");
-        $("#id_paciente").focus();
-    } 
-      */
-    /*else if ($("#id_paciente").val().trim() == 0) {
-        valor = false;
-        $("#mensajes").html("Seleccione un paciente");
-        $("#id_paciente").focus();
-    } */ 
-    else if ($("#nombre_paciente").val().trim() === "") {
+    } else if ($("#nombre_paciente").val().trim() === "") {
         valor = false;
         $("#mensajes").html("Paciente no puede estar vacio");
         $("#id_paciente").focus();
@@ -675,16 +660,7 @@ function limpiarFormulario(){
         valor = false;
         $("#mensajes").html("Especifique el motivo de la consulta");
         $("#nombre_ficha").focus();
-    } else if ($("#presion_alta_select").val() === "elegirpa") {
-        $("#mensajes").html("El campo de presion ALTA no puede estar vacio");
-        valor = false;
-        $("#presion_alta_select").focus();
-    } else if ($("#presion_baja_select").val() === "elegirpb") {
-        $("#mensajes").html("El campo de presion BAJA no puede estar vacio");
-        valor = false;
-        $("#presion_baja_select").focus();
-    }
-      else if ($("#alergias_paciente").val().trim() === "") {
+    } else if ($("#alergias_paciente").val().trim() === "") {
         valor = false;
         $("#mensajes").html("El campo de alergias no puede estar vacio");
         $("#alergias_paciente").focus();
@@ -692,7 +668,47 @@ function limpiarFormulario(){
         valor = false;
         $("#mensajes").html("El campo de vacunas no puede estar vacio");
         $("#vacunas_paciente").focus();
-    }
+    } else if ($("#alteraciones_sistem").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Alteraciones sistematicas no puede estar vacio");
+        $("#alteraciones_sistem").focus();
+    } else if ($("#hab_nocivos").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Habitos nocivos no puede estar vacio");
+        $("#hab_nocivos").focus();
+    } else if ($("#medicacion_actual").val().trim() === "") {
+        valor = false;
+        $("#mensajes").html("Medicacion actual no puede estar vacio");
+        $("#medicacion_actual").focus();
+    } else if ($("#presion_alta_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Presion ALTA no puede estar vacio");
+        $("#presion_alta_select").focus();
+    } else if ($("#presion_baja_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Presion BAJA no puede estar vacio");
+        $("#presion_baja_select").focus();
+    }  else if ($("#fiebre_reumatica_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Fiebre Reumatica, no puede estar vacio");
+        $("#fiebre_reumatica_select").focus();
+    } else if ($("#desmayos_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Desmayos, no puede estar vacio");
+        $("#desmayos_select").focus();
+    } else if ($("#marcapasos_cardiacos_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Marcapasos cardiacos, no puede estar vacio");
+        $("#marcapasos_cardiacos_select").focus();
+    } else if ($("#trat_radio_quimio_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Tratatamientos radio/quimio, no puede estar vacio");
+        $("#trat_radio_quimio_select").focus();
+    } else if ($("#tienetuvo_especificar").val() === "") {
+        valor = false;
+        $("#mensajes").html("Favor complete el campo especificando detalles del paciente");
+        $("#tienetuvo_especificar").focus();
+    } 
     return valor;
 }
     

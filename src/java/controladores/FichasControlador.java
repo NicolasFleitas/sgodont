@@ -21,7 +21,9 @@ public class FichasControlador {
                     + "presion_alta,presion_baja,alergias_paciente,vacunas_paciente,"
                     + "alteraciones_sistem,hab_nocivos,medicacion_actual,"
                     + "tiene_embarazo,tiempo_gestacion,esta_amamantando,"
-                    + "medico_tratante,medico_tratante_nro)"
+                    + "medico_tratante,medico_tratante_nro,"
+                    + "fiebre_reumatica,desmayos,marcapasos_cardiacos,"
+                    + "trat_radio_quimio,tienetuvo_especificar)"
                     + " values('" + ficha.getNombre_ficha() + "','"
                     + ficha.getFecha_ficha() + "','"
                     + ficha.getDoctor().getId_doctor() + "','"
@@ -33,11 +35,19 @@ public class FichasControlador {
                     + ficha.getAlteraciones_sistem() + "','"
                     + ficha.getHab_nocivos() + "','"
                     + ficha.getMedicacion_actual() + "','"
+                    
                     + ficha.getTiene_embarazo() + "','"
                     + ficha.getTiempo_gestacion() + "','"
                     + ficha.getEsta_amamantando() + "','"
                     + ficha.getMedico_tratante() + "','"
-                    + ficha.getMedico_tratante_nro() + "')";
+                    + ficha.getMedico_tratante_nro()+ "','"
+                    
+                    + ficha.getFiebre_reumatica() + "','"
+                    + ficha.getDesmayos() + "','"
+                    + ficha.getMarcapasos_cardiacos()+ "','"
+                    + ficha.getTrat_radio_quimio()+ "','"
+                    + ficha.getTienetuvo_especificar()+ "')";
+                    
             
             System.out.println("SQL AGREGAR: "+ sql);
 
@@ -133,6 +143,11 @@ public class FichasControlador {
                     
                     ficha.setPresion_alta(rs.getString("presion_alta"));
                     ficha.setPresion_baja(rs.getString("presion_baja"));
+                    ficha.setFiebre_reumatica(rs.getString("fiebre_reumatica"));
+                    ficha.setDesmayos(rs.getString("desmayos"));
+                    ficha.setMarcapasos_cardiacos(rs.getString("marcapasos_cardiacos"));
+                    ficha.setTrat_radio_quimio(rs.getString("trat_radio_quimio"));
+                    ficha.setTienetuvo_especificar(rs.getString("tienetuvo_especificar"));
                     ficha.setAlergias_paciente(rs.getString("alergias_paciente"));
                     ficha.setVacunas_paciente(rs.getString("vacunas_paciente"));
                     ficha.setAlteraciones_sistem(rs.getString("alteraciones_sistem"));
@@ -167,11 +182,16 @@ public class FichasControlador {
                     paciente.setId_paciente(0);
                     paciente.setNombre_paciente("");
                     paciente.setSexo(sexo);
-                    
                     ficha.setDoctor(doctor);
                     ficha.setPaciente(paciente);
+                    
                     ficha.setPresion_alta("");
                     ficha.setPresion_baja("");
+                    ficha.setFiebre_reumatica("");
+                    ficha.setDesmayos("");
+                    ficha.setMarcapasos_cardiacos("");
+                    ficha.setTrat_radio_quimio("");
+                    ficha.setTienetuvo_especificar("");
                     
                     ficha.setAlergias_paciente("");
                     ficha.setVacunas_paciente("");
@@ -247,6 +267,11 @@ public class FichasControlador {
                     + "id_paciente='" + ficha.getPaciente().getId_paciente() + "',"
                     + "presion_alta='" + ficha.getPresion_alta() + "',"
                     + "presion_baja='" + ficha.getPresion_baja()+ "',"
+                    + "fiebre_reumatica='" + ficha.getFiebre_reumatica() + "',"
+                    + "desmayos='" + ficha.getDesmayos()+ "',"
+                    + "marcapasos_cardiacos='" + ficha.getMarcapasos_cardiacos()+ "',"
+                    + "trat_radio_quimio='" + ficha.getTrat_radio_quimio()+ "',"
+                    + "tienetuvo_especificar='" + ficha.getTienetuvo_especificar()+ "',"
                     + "alergias_paciente='" + ficha.getAlergias_paciente() + "',"
                     + "vacunas_paciente='" + ficha.getVacunas_paciente() + "'," 
                     + "alteraciones_sistem='" + ficha.getAlteraciones_sistem()+ "',"

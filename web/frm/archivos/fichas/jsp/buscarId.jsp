@@ -39,8 +39,15 @@
     obj.put("nombre_paciente", ficha.getPaciente().getNombre_paciente());
     obj.put("apellido_paciente", ficha.getPaciente().getApellido_paciente());
     obj.put("nombre_sexo", ficha.getPaciente().getSexo().getNombre_sexo());
+    /*TieneTuvo*/
     obj.put("presion_alta", ficha.getPresion_alta());
     obj.put("presion_baja", ficha.getPresion_baja());
+    obj.put("fiebre_reumatica", ficha.getFiebre_reumatica());
+    obj.put("desmayos", ficha.getDesmayos());
+    obj.put("marcapasos_cardiacos", ficha.getMarcapasos_cardiacos());
+    obj.put("trat_radio_quimio", ficha.getTrat_radio_quimio());
+    obj.put("tienetuvo_especificar", ficha.getTienetuvo_especificar());
+    /*FinTieneTuvo*/
     obj.put("alergias_paciente", ficha.getAlergias_paciente());
     obj.put("vacunas_paciente", ficha.getVacunas_paciente());
     obj.put("alteraciones_sistem", ficha.getAlteraciones_sistem());

@@ -143,7 +143,7 @@
                     <!--PACIENTES-->
                     <div class="row">
                         <div class="col-md-1 col-sm-1 col-xs-3">
-                            <span>Nro Pcte</span>
+                            <span>Nº Pcte</span>
                         </div>
                         <div class="col-md-1 col-sm-1 col-xs-6">
                             <input id="id_paciente" name="id_paciente" type="text"
@@ -153,56 +153,55 @@
                             <button id="botonBuscarIdPaciente" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
-                    </div>
-                   
-                    <div class="row">
+                        
                         <div class="col-md-1">
                             <span>Paciente</span>
                         </div>
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-2 col-sm-3">
                             <input id="nombre_paciente" name="nombre_paciente" type="text" class="form-control input-sm" placeholder="Nombre" readonly="" >
                         </div>
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-2 col-sm-3">
                             <input id="apellido_paciente" name="apellido_paciente" type="text" class="form-control input-sm" placeholder="Apellido" readonly="" >
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <span>Sexo</span>
                         </div>
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-2 col-sm-1">
                             <input id="nombre_sexo" name="nombre_sexo" type="text" 
                                    class="form-control input-sm" placeholder="sexo" readonly="">
                         </div>
                     </div>
+                  
                     <hr>    
                     <div class="row" id='esfemenino'>
                         <div class="col-md-1">
                             <span>Embarazo</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1">
                             <input id="tiene_embarazo" name="tiene_embarazo" type="text" class="form-control input-sm" placeholder="embarazo">
                         </div>
                         <div class="col-md-1">
                             <span>Tiempo Embarazo</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1">
                             <input id="tiempo_gestacion" name="tiempo_gestacion" type="text" class="form-control input-sm" placeholder="tiempo gestacion">
                         </div>
                         <div class="col-md-1">
                             <span>Amamanta</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1">
                             <input id="esta_amamantando" name="esta_amamantando" type="text" class="form-control input-sm" placeholder="amamanta">
                         </div>
                         <div class="col-md-1">
                             <span>Med tratante</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1">
                             <input id="medico_tratante" name="medico_tratante" type="text" class="form-control input-sm" placeholder="medico">
                         </div>
                         <div class="col-md-1">
                             <span>Telef medico</span>
                         </div>
-                         <div class="col-md-1 col-sm-1">
+                         <div class="col-md-1">
                              <input id="medico_tratante_nro" name="medico_tratante_nro" type="text" class="form-control input-sm" placeholder="telef med">
                         </div>
                        <!-- <div>
@@ -213,40 +212,13 @@
                     <hr>
                     
                      <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <span>Motivo de consulta</span>
+                        <div class="col-md-1 col-sm-1">
+                            <span>Motivo Con</span>
                         </div>
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-6 col-sm-6">
                             <input id="nombre_ficha" name="nombre_ficha" type="text" class="form-control input-sm" placeholder="Motivo consulta" >
                         </div>
                     </div>
-                    <br>
-                    <!--presion ALTA -->
-                    <div class="row">
-                        <div class="col-md-1 col-sm-1">
-                            <span>Presion alta</span>
-                        </div>
-                        <div class="col-md-1 col-sm-1">
-                            <select class="form-control" id="presion_alta_select" name="presion_alta_select">
-                                <option id="elegirpa" value="elegirpa">Elegir</option>
-                                <option id="SIpa" value="NO">NO</option>
-                                <option id="NOpa" value="SI">SI</option>
-                            </select>
-                        </div>
-                        <!--presion BAJA -->
-                        <div class="col-md-2 col-sm-1">
-                            <span>Presion baja</span>
-                        </div>
-                        <div class="col-md-1 col-sm-1">
-                            <select class="form-control" id="presion_baja_select" name="presion_baja_select">
-                                <option id="elegipb" selected value="elegirpb">Elegir</option>
-                                <option id="SIpb" value="NO">NO</option>
-                                <option id="NOpb" value="SI">SI</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                      <!--presion BAJA -->
                     
                     <div class="row">
                         <div class="col-md-1">
@@ -269,32 +241,117 @@
                       
                        <div class="row">
                           <div class="col-md-1">
-                              <span>Alteraciones Sistematicas</span>
+                              <span>Alt Sistem</span>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-sm-6">
                               <input id="alteraciones_sistem" name="alteraciones_sistem" type="text" class="form-control input-sm" placeholder="alt sistematicas" >
                           </div>
                       </div>
                       
                        <div class="row">
-                          <div class="col-md-1">
+                          <div class="col-md-1 col-sm-6">
                               <span>Hab Nocivos</span>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-sm-6">
                               <input id="hab_nocivos" name="hab_nocivos" type="text" class="form-control input-sm" placeholder="Hab Nocivos">
                           </div>
                       </div>
                       
                        <div class="row">
                           <div class="col-md-1">
-                              <span>Med Actual</span>
+                              <span>Medicamentos</span>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6 col-sm-6">
                               <input id="medicacion_actual" name="medicacion_actual" type="text" class="form-control input-sm" placeholder="Medicacion actual" >
                           </div>
                       </div>
                       
+                      <hr>
+                    <!-- TIENE TUVO -->
                     
+                     <!--presion ALTA -->
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <span>Presion alta</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <select class="form-control" id="presion_alta_select" name="presion_alta_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <!--presion BAJA -->
+                        <div class="col-md-2 col-sm-1">
+                            <span>Presion baja</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <select class="form-control" id="presion_baja_select" name="presion_baja_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                     <!-- FIEBRE REUMATICA -->
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <span>Fiebre Reumatica</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <select class="form-control" id="fiebre_reumatica_select" name="fiebre_reumatica_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <!--DESMAYOS -->
+                        <div class="col-md-2 col-sm-2">
+                            <span>Desmayos</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <select class="form-control" id="desmayos_select" name="desmayos_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                       
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <span>Marcapasos Cardiacos</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <select class="form-control" id="marcapasos_cardiacos_select" name="marcapasos_cardiacos_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                        <!--Tratamientos radioterapia - quimioterapia -->
+                        <div class="col-md-2 col-sm-2">
+                            <span>Trat. radio/quimio</span>
+                        </div>
+                        <div class="col-md-1 col-sm-1">
+                            <select class="form-control" id="trat_radio_quimio_select" name="trat_radio_quimio_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                      
+                       <div class="row">
+                          <div class="col-md-1">
+                              <span>Especificar</span>
+                          </div>
+                          <div class="col-md-6">
+                              <input id="tienetuvo_especificar" name="tienetuvo_especificar" type="text" class="form-control input-sm" placeholder="Tiene/tuvo especificar">
+                          </div>
+                      </div>
+                     
+                     
                 </form>
             </div> 
             <div class="panel-footer centrado">
@@ -428,22 +485,21 @@
                                         
                                 $("#botonAgregar").on('click', function () {
                                     if (validarFormulario()) {
-                                        
                                     agregarFicha();
                                     }  
                                 });
                                 
-                                
+                                 $("#botonModificar").on('click', function () {
+                                    if(validarFormulario()) {
+                                    modificarFicha();
+                                    }   
+                                });
                                   $("#botonFacturar").on('click', function () {
                                     //if (validarFormulario()) {
                                     crearFacturas();
                                     //}  
                                 });
-                                $("#botonModificar").on('click', function () {
-                                    //if(validarFormulario()) {
-                                    modificarFicha();
-                                    //}   
-                                });
+                               
                                 $("#botonEliminarAlert").on('click', function () {
                                     eliminarFicha();
                                     $('#confirmarEliminar').modal('hide');
