@@ -334,9 +334,8 @@ function buscarIdPaciente() {
             $("#nombre_sexo").val(json.nombre_sexo);
             $("#id_gruposang").val(json.id_gruposang);
             $("#nombre_gruposang").val(json.nombre_gruposang);
-            
+            quitarcamposfemeninos();
             // console.log(json.nuevo);
-            
         },
         error: function (e) {
             $("#mensajes").html("No se pudo modificar los datos.");
