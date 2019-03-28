@@ -28,7 +28,14 @@ function buscarIdFicha() {
              $("#desmayos_select").val(json.desmayos);
              $("#marcapasos_cardiacos_select").val(json.marcapasos_cardiacos);
              $("#trat_radio_quimio_select").val(json.trat_radio_quimio);
-             $("#tienetuvo_especificar").val(json.tienetuvo_especificar);        
+             $("#tienetuvo_especificar").val(json.tienetuvo_especificar);      
+             
+             $("#ataques_cardiacos_select").val(json.ataques_cardiacos);
+             $("#sangrado_excesivo_select").val(json.sangrado_excesivo);
+             $("#moretones_inst_select").val(json.moretones_inst);
+             $("#asma_rinitis_select").val(json.asma_rinitis);
+             $("#farmaco_especificar").val(json.farmaco_especificar);
+             
             /* ------ */
             
             $("#alergias_paciente").val(json.alergias_paciente);
@@ -75,23 +82,6 @@ function buscarIdFicha() {
         }
     });
 }
-
-function quitarcamposfemeninos() {
-    //  alert("HOLA");
-    var sexo = $("#nombre_sexo").val();
-   // alert(" SEXO " + sexo)
-    if (sexo === "MASCULINO") {
-        $("#esfemenino").hide();
-       // alert("SI");
-    } else
-        if (sexo === "FEMENINO") {
-        $("#esfemenino").show();
-       // alert("SI");
-    }
-};
-                                
-                                
-                                
 function buscarNombreFicha() {
     var datosFormulario = $("#formBuscar").serialize();
     //alert(datosFormulario);
@@ -128,6 +118,21 @@ function buscarNombreFicha() {
        }
     });
 }
+function quitarcamposfemeninos() {
+    //  alert("HOLA");
+    var sexo = $("#nombre_sexo").val();
+   // alert(" SEXO " + sexo)
+    if (sexo === "MASCULINO") {
+        $("#esfemenino").hide();
+       // alert("SI");
+    } else
+        if (sexo === "FEMENINO") {
+        $("#esfemenino").show();
+       // alert("SI");
+    }
+};
+
+
 function agregarFicha(){
     var datosFormulario = $("#formPrograma").serialize();
   // alert(datosFormulario)
@@ -708,7 +713,27 @@ function limpiarFormulario(){
         valor = false;
         $("#mensajes").html("Favor complete el campo especificando detalles del paciente");
         $("#tienetuvo_especificar").focus();
+    } else if ($("#ataques_cardiacos_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Ataques cardiacos, no puede estar vacio");
+        $("#ataques_cardiacos_select").focus();
+    } else if ($("#sangrado_excesivo_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Sangrado excesivo, no puede estar vacio");
+        $("#sangrado_excesivo_select").focus();
+    } else if ($("#moretones_inst_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Moretones excesivos, no puede estar vacio");
+        $("#moretones_inst_select").focus();
+    } else if ($("#asma_rinitis_select").val() === "") {
+        valor = false;
+        $("#mensajes").html("Indique si el paciente tiene asma o rinitis");
+        $("#asma_rinitis_select").focus();
+    } else if ($("#farmaco_especificar").val() === "") {
+        valor = false;
+        $("#mensajes").html("Favor especificar los farmacos utilizados por el paciente");
+        $("#farmaco_especificar").focus();
     } 
-    return valor;
+    return valor; 
 }
     

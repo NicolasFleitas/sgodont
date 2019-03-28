@@ -90,6 +90,8 @@
         <div id="panelPrograma" class="panel panel-primary">
             <div class="panel-heading centrado">Fichas  | <span
                     id="sficha_ficha"></span></div>
+                    
+                    
             <div class="panel-body">
                 <form id="formPrograma">
                     <div class="row">
@@ -110,7 +112,7 @@
                         <div class="col-md-1 col-sm-1 col-xs-3 ">
                             <span>Fecha</span>
                         </div>
-                        <div class="col-md-2 col-sm-2 col-xs-6 ">
+                        <div class="col-md-2 col-sm-3 col-xs-6 ">
                             <input id="fecha_ficha" name="fecha_ficha" type="date" class="form-control input-sm">
                         </div>
                     </div>
@@ -142,31 +144,31 @@
                     
                     <!--PACIENTES-->
                     <div class="row">
-                        <div class="col-md-1 col-sm-1 col-xs-3">
+                        <div class="col-md-1 col-sm-1 ">
                             <span>Nº Pcte</span>
                         </div>
-                        <div class="col-md-1 col-sm-1 col-xs-6">
+                        <div class="col-md-1 col-sm-1">
                             <input id="id_paciente" name="id_paciente" type="text"
                                    class="form-control input-sm" placeholder="Id" onkeypress="return SoloNumeros(event)">
                         </div>
-                        <div class="col-md-1 col-sm-1 col-xs-3">
+                        <div class="col-md-1 col-sm-1">
                             <button id="botonBuscarIdPaciente" type="button" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-search"></span></button>
                         </div>
                         
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-1">
                             <span>Paciente</span>
                         </div>
-                        <div class="col-md-2 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="nombre_paciente" name="nombre_paciente" type="text" class="form-control input-sm" placeholder="Nombre" readonly="" >
                         </div>
-                        <div class="col-md-2 col-sm-3">
+                        <div class="col-md-2 col-sm-2">
                             <input id="apellido_paciente" name="apellido_paciente" type="text" class="form-control input-sm" placeholder="Apellido" readonly="" >
                         </div>
                         <div class="col-md-1 col-sm-1">
                             <span>Sexo</span>
                         </div>
-                        <div class="col-md-2 col-sm-1">
+                        <div class="col-md-2 col-sm-2">
                             <input id="nombre_sexo" name="nombre_sexo" type="text" 
                                    class="form-control input-sm" placeholder="sexo" readonly="">
                         </div>
@@ -195,13 +197,13 @@
                         <div class="col-md-1">
                             <span>Med tratante</span>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <input id="medico_tratante" name="medico_tratante" type="text" class="form-control input-sm" placeholder="medico">
                         </div>
                         <div class="col-md-1">
                             <span>Telef medico</span>
                         </div>
-                         <div class="col-md-1">
+                         <div class="col-md-2">
                              <input id="medico_tratante_nro" name="medico_tratante_nro" type="text" class="form-control input-sm" placeholder="telef med">
                         </div>
                        <!-- <div>
@@ -212,7 +214,7 @@
                     <hr>
                     
                      <div class="row">
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <span>Motivo Con</span>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -221,7 +223,7 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-md-1">
+                        <div class="col-md-1 col-sm-2">
                             <span>Alergias</span>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -230,7 +232,7 @@
                     </div>
 
                       <div class="row">
-                          <div class="col-md-1">
+                          <div class="col-md-1 col-sm-2">
                               <span>Vacunas</span>
                           </div>
                           <div class="col-md-6 col-sm-6">
@@ -240,7 +242,7 @@
                       <hr>
                       
                        <div class="row">
-                          <div class="col-md-1">
+                          <div class="col-md-1 col-sm-2">
                               <span>Alt Sistem</span>
                           </div>
                           <div class="col-md-6 col-sm-6">
@@ -249,7 +251,7 @@
                       </div>
                       
                        <div class="row">
-                          <div class="col-md-1 col-sm-6">
+                          <div class="col-md-1 col-sm-2">
                               <span>Hab Nocivos</span>
                           </div>
                           <div class="col-md-6 col-sm-6">
@@ -258,7 +260,7 @@
                       </div>
                       
                        <div class="row">
-                          <div class="col-md-1">
+                          <div class="col-md-1 col-sm-2">
                               <span>Medicamentos</span>
                           </div>
                           <div class="col-md-6 col-sm-6">
@@ -274,7 +276,7 @@
                         <div class="col-md-2 col-sm-2">
                             <span>Presion alta</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <select class="form-control" id="presion_alta_select" name="presion_alta_select">
                                 <option value="">Elegir</option>
                                 <option value="NO">NO</option>
@@ -282,10 +284,10 @@
                             </select>
                         </div>
                         <!--presion BAJA -->
-                        <div class="col-md-2 col-sm-1">
+                        <div class="col-md-2 col-sm-2">
                             <span>Presion baja</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <select class="form-control" id="presion_baja_select" name="presion_baja_select">
                                 <option value="">Elegir</option>
                                 <option value="NO">NO</option>
@@ -298,7 +300,7 @@
                         <div class="col-md-2 col-sm-2">
                             <span>Fiebre Reumatica</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <select class="form-control" id="fiebre_reumatica_select" name="fiebre_reumatica_select">
                                 <option value="">Elegir</option>
                                 <option value="NO">NO</option>
@@ -309,7 +311,7 @@
                         <div class="col-md-2 col-sm-2">
                             <span>Desmayos</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <select class="form-control" id="desmayos_select" name="desmayos_select">
                                 <option value="">Elegir</option>
                                 <option value="NO">NO</option>
@@ -322,7 +324,7 @@
                         <div class="col-md-2 col-sm-2">
                             <span>Marcapasos Cardiacos</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <select class="form-control" id="marcapasos_cardiacos_select" name="marcapasos_cardiacos_select">
                                 <option value="">Elegir</option>
                                 <option value="NO">NO</option>
@@ -333,7 +335,7 @@
                         <div class="col-md-2 col-sm-2">
                             <span>Trat. radio/quimio</span>
                         </div>
-                        <div class="col-md-1 col-sm-1">
+                        <div class="col-md-1 col-sm-2">
                             <select class="form-control" id="trat_radio_quimio_select" name="trat_radio_quimio_select">
                                 <option value="">Elegir</option>
                                 <option value="NO">NO</option>
@@ -342,7 +344,7 @@
                         </div>
                     </div>
                       
-                       <div class="row">
+                    <div class="row">
                           <div class="col-md-1">
                               <span>Especificar</span>
                           </div>
@@ -351,9 +353,70 @@
                           </div>
                       </div>
                      
+                     <!-- Ataques cardiacos -->
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <span>Ataques Cardiacos</span>
+                        </div>
+                        <div class="col-md-1 col-sm-2">
+                            <select class="form-control" id="ataques_cardiacos_select" name="ataques_cardiacos_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                          
+                        <!--Sangrado excesivo -->
+                        <div class="col-md-2 col-sm-2">
+                            <span>Sangrado excesivo</span>
+                        </div>
+                        <div class="col-md-1 col-sm-2">
+                            <select class="form-control" id="sangrado_excesivo_select" name="sangrado_excesivo_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
                      
+                     <!-- Moretones instantaneos -->
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <span>Moretones instantaneos</span>
+                        </div>
+                        <div class="col-md-1 col-sm-2">
+                            <select class="form-control" id="moretones_inst_select" name="moretones_inst_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                          
+                        <!-- Asma o ritinis -->
+                        <div class="col-md-2 col-sm-2">
+                            <span>Asma o rinitis</span>
+                        </div>
+                        <div class="col-md-1 col-sm-2">
+                            <select class="form-control" id="asma_rinitis_select" name="asma_rinitis_select">
+                                <option value="">Elegir</option>
+                                <option value="NO">NO</option>
+                                <option value="SI">SI</option>
+                            </select>
+                        </div>
+                    </div>
+                     
+                     <div class="row">
+                          <div class="col-md-1">
+                              <span>Fármacos</span>
+                          </div>
+                          <div class="col-md-6">
+                              <input id="farmaco_especificar" name="farmaco_especificar" type="text" class="form-control input-sm" placeholder="Especificar farmacos que consume">
+                          </div>
+                      </div>                     
                 </form>
             </div> 
+           
+            
             <div class="panel-footer centrado">
                 <button id="botonAgregar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>Agregar</button>
                 <button id="botonModificar" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-retweet"></span>Modificar</button>
@@ -363,9 +426,8 @@
                 <button id="botonSalir" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span>Salir</button>
             </div>
             <!-- **************************TABLA************************** -->
-
             <div id="detalle" hidden="">
-                <table class="table table-fit table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
                             <th>Id</th>

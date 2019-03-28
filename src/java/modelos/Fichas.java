@@ -26,11 +26,16 @@ public class Fichas {
     private String marcapasos_cardiacos;
     private String trat_radio_quimio;
     private String tienetuvo_especificar;
+    private String ataques_cardiacos;
+    private String sangrado_excesivo;
+    private String moretones_inst;
+    private String asma_rinitis;
+    private String farmaco_especificar;
     /*FinTieneTuvo*/
     public Fichas() {
     }
 
-    public Fichas(int id_ficha, Doctores doctor, Pacientes paciente, String nombre_ficha, Date fecha_ficha, String alergias_paciente, String vacunas_paciente, String alteraciones_sistem, String hab_nocivos, String medicacion_actual, String tiene_embarazo, String tiempo_gestacion, String esta_amamantando, String medico_tratante, String medico_tratante_nro, String presion_alta, String presion_baja, String fiebre_reumatica, String desmayos, String marcapasos_cardiacos, String trat_radio_quimio, String tienetuvo_especificar) {
+    public Fichas(int id_ficha, Doctores doctor, Pacientes paciente, String nombre_ficha, Date fecha_ficha, String alergias_paciente, String vacunas_paciente, String alteraciones_sistem, String hab_nocivos, String medicacion_actual, String tiene_embarazo, String tiempo_gestacion, String esta_amamantando, String medico_tratante, String medico_tratante_nro, String presion_alta, String presion_baja, String fiebre_reumatica, String desmayos, String marcapasos_cardiacos, String trat_radio_quimio, String tienetuvo_especificar, String ataques_cardiacos, String sangrado_excesivo, String moretones_inst, String asma_rinitis, String farmaco_especificar) {
         this.id_ficha = id_ficha;
         this.doctor = doctor;
         this.paciente = paciente;
@@ -53,9 +58,54 @@ public class Fichas {
         this.marcapasos_cardiacos = marcapasos_cardiacos;
         this.trat_radio_quimio = trat_radio_quimio;
         this.tienetuvo_especificar = tienetuvo_especificar;
+        this.ataques_cardiacos = ataques_cardiacos;
+        this.sangrado_excesivo = sangrado_excesivo;
+        this.moretones_inst = moretones_inst;
+        this.asma_rinitis = asma_rinitis;
+        this.farmaco_especificar = farmaco_especificar;
     }
 
-   
+    public String getAtaques_cardiacos() {
+        return ataques_cardiacos;
+    }
+
+    public void setAtaques_cardiacos(String ataques_cardiacos) {
+        this.ataques_cardiacos = ataques_cardiacos;
+    }
+
+    public String getSangrado_excesivo() {
+        return sangrado_excesivo;
+    }
+
+    public void setSangrado_excesivo(String sangrado_excesivo) {
+        this.sangrado_excesivo = sangrado_excesivo;
+    }
+
+    public String getMoretones_inst() {
+        return moretones_inst;
+    }
+
+    public void setMoretones_inst(String moretones_inst) {
+        this.moretones_inst = moretones_inst;
+    }
+
+    public String getAsma_rinitis() {
+        return asma_rinitis;
+    }
+
+    public void setAsma_rinitis(String asma_rinitis) {
+        this.asma_rinitis = asma_rinitis;
+    }
+
+    public String getFarmaco_especificar() {
+        return farmaco_especificar;
+    }
+
+    public void setFarmaco_especificar(String farmaco_especificar) {
+        this.farmaco_especificar = farmaco_especificar;
+    }
+
+ 
     public String getFiebre_reumatica() {
         return fiebre_reumatica;
     }
@@ -236,8 +286,4 @@ public class Fichas {
     public void setFecha_ficha(Date fecha_ficha) {
         this.fecha_ficha = fecha_ficha;
     }
-
-   
-    
-    
 }

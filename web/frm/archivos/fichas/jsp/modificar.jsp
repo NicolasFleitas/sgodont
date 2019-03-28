@@ -31,6 +31,12 @@
     String marcapasos_cardiacos = request.getParameter("marcapasos_cardiacos_select");
     String trat_radio_quimio = request.getParameter("trat_radio_quimio_select");
     String tienetuvo_especificar = request.getParameter("tienetuvo_especificar");
+    
+    String ataques_cardiacos  = request.getParameter("ataques_cardiacos_select");
+    String sangrado_excesivo  = request.getParameter("sangrado_excesivo_select");
+    String moretones_inst  = request.getParameter("moretones_inst_select");
+    String asma_rinitis  = request.getParameter("asma_rinitis_select");
+    String farmaco_especificar = request.getParameter("farmaco_especificar");
     /*Fin TieneTuvo*/
   
     Doctores doctor = new Doctores();
@@ -67,6 +73,12 @@
     ficha.setMarcapasos_cardiacos(marcapasos_cardiacos);
     ficha.setTrat_radio_quimio(trat_radio_quimio);
     ficha.setTienetuvo_especificar(tienetuvo_especificar);
+    
+    ficha.setAtaques_cardiacos(ataques_cardiacos);
+    ficha.setSangrado_excesivo(sangrado_excesivo);
+    ficha.setMoretones_inst(moretones_inst);
+    ficha.setAsma_rinitis(asma_rinitis);
+    ficha.setFarmaco_especificar(farmaco_especificar);
     /*FinTieneTuvo*/
     
    if (FichasControlador.modificar(ficha)){

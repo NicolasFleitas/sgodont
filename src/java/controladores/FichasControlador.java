@@ -23,7 +23,9 @@ public class FichasControlador {
                     + "tiene_embarazo,tiempo_gestacion,esta_amamantando,"
                     + "medico_tratante,medico_tratante_nro,"
                     + "fiebre_reumatica,desmayos,marcapasos_cardiacos,"
-                    + "trat_radio_quimio,tienetuvo_especificar)"
+                    + "trat_radio_quimio,tienetuvo_especificar,"
+                    + "ataques_cardiacos,sangrado_excesivo,moretones_inst,"
+                    + "asma_rinitis,farmaco)"
                     + " values('" + ficha.getNombre_ficha() + "','"
                     + ficha.getFecha_ficha() + "','"
                     + ficha.getDoctor().getId_doctor() + "','"
@@ -46,7 +48,12 @@ public class FichasControlador {
                     + ficha.getDesmayos() + "','"
                     + ficha.getMarcapasos_cardiacos()+ "','"
                     + ficha.getTrat_radio_quimio()+ "','"
-                    + ficha.getTienetuvo_especificar()+ "')";
+                    + ficha.getTienetuvo_especificar()+ "','"
+                    + ficha.getAtaques_cardiacos() + "','"
+                    + ficha.getSangrado_excesivo()+ "','"
+                    + ficha.getMoretones_inst()+ "','"
+                    + ficha.getAsma_rinitis()+ "','"
+                    + ficha.getFarmaco_especificar()+ "')";
                     
             
             System.out.println("SQL AGREGAR: "+ sql);
@@ -148,6 +155,14 @@ public class FichasControlador {
                     ficha.setMarcapasos_cardiacos(rs.getString("marcapasos_cardiacos"));
                     ficha.setTrat_radio_quimio(rs.getString("trat_radio_quimio"));
                     ficha.setTienetuvo_especificar(rs.getString("tienetuvo_especificar"));
+                    
+                    ficha.setAtaques_cardiacos(rs.getString("ataques_cardiacos"));
+                    ficha.setSangrado_excesivo(rs.getString("sangrado_excesivo"));
+                    ficha.setMoretones_inst(rs.getString("moretones_inst"));
+                    ficha.setAsma_rinitis(rs.getString("asma_rinitis"));
+                    ficha.setFarmaco_especificar(rs.getString("farmaco"));
+                    
+                    
                     ficha.setAlergias_paciente(rs.getString("alergias_paciente"));
                     ficha.setVacunas_paciente(rs.getString("vacunas_paciente"));
                     ficha.setAlteraciones_sistem(rs.getString("alteraciones_sistem"));
@@ -192,6 +207,12 @@ public class FichasControlador {
                     ficha.setMarcapasos_cardiacos("");
                     ficha.setTrat_radio_quimio("");
                     ficha.setTienetuvo_especificar("");
+                    
+                    ficha.setAtaques_cardiacos("");
+                    ficha.setSangrado_excesivo("");
+                    ficha.setMoretones_inst("");
+                    ficha.setAsma_rinitis("");
+                    ficha.setFarmaco_especificar("");
                     
                     ficha.setAlergias_paciente("");
                     ficha.setVacunas_paciente("");
@@ -266,18 +287,23 @@ public class FichasControlador {
                     + "id_doctor='" + ficha.getDoctor().getId_doctor() + "',"
                     + "id_paciente='" + ficha.getPaciente().getId_paciente() + "',"
                     + "presion_alta='" + ficha.getPresion_alta() + "',"
-                    + "presion_baja='" + ficha.getPresion_baja()+ "',"
+                    + "presion_baja='" + ficha.getPresion_baja() + "',"
                     + "fiebre_reumatica='" + ficha.getFiebre_reumatica() + "',"
-                    + "desmayos='" + ficha.getDesmayos()+ "',"
-                    + "marcapasos_cardiacos='" + ficha.getMarcapasos_cardiacos()+ "',"
-                    + "trat_radio_quimio='" + ficha.getTrat_radio_quimio()+ "',"
-                    + "tienetuvo_especificar='" + ficha.getTienetuvo_especificar()+ "',"
+                    + "desmayos='" + ficha.getDesmayos() + "',"
+                    + "marcapasos_cardiacos='" + ficha.getMarcapasos_cardiacos() + "',"
+                    + "trat_radio_quimio='" + ficha.getTrat_radio_quimio() + "',"
+                    + "tienetuvo_especificar='" + ficha.getTienetuvo_especificar() + "',"
+                    + "ataques_cardiacos='" + ficha.getAtaques_cardiacos() + "',"
+                    + "sangrado_excesivo ='" + ficha.getSangrado_excesivo() + "',"
+                    + "moretones_inst ='" + ficha.getMoretones_inst() + "',"
+                    + "asma_rinitis ='" + ficha.getAsma_rinitis() + "',"
+                    + "farmaco='" + ficha.getFarmaco_especificar() + "',"
                     + "alergias_paciente='" + ficha.getAlergias_paciente() + "',"
                     + "vacunas_paciente='" + ficha.getVacunas_paciente() + "'," 
                     + "alteraciones_sistem='" + ficha.getAlteraciones_sistem()+ "',"
-                    + "hab_nocivos='" + ficha.getHab_nocivos()+ "',"
+                    + "hab_nocivos='" + ficha.getHab_nocivos() + "',"
                     + "medicacion_actual='" + ficha.getMedicacion_actual() + "'," 
-                    + "tiene_embarazo='" + ficha.getTiene_embarazo()+ "'," 
+                    + "tiene_embarazo='" + ficha.getTiene_embarazo() + "'," 
                     + "tiempo_gestacion='" + ficha.getTiempo_gestacion() + "',"
                     + "esta_amamantando='" + ficha.getEsta_amamantando() + "',"
                     + "medico_tratante='" + ficha.getMedico_tratante() + "',"

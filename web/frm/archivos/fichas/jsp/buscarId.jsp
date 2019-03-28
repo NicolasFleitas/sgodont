@@ -10,7 +10,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%
     int id_ficha = Integer.parseInt(request.getParameter("id_ficha"));
-    
     String tipo = "error";
     String mensaje = "Datos no encontrados";
     String nuevo = "true";
@@ -47,6 +46,12 @@
     obj.put("marcapasos_cardiacos", ficha.getMarcapasos_cardiacos());
     obj.put("trat_radio_quimio", ficha.getTrat_radio_quimio());
     obj.put("tienetuvo_especificar", ficha.getTienetuvo_especificar());
+    
+    obj.put("ataques_cardiacos", ficha.getAtaques_cardiacos());
+    obj.put("sangrado_excesivo", ficha.getSangrado_excesivo());
+    obj.put("moretones_inst", ficha.getMoretones_inst());
+    obj.put("asma_rinitis", ficha.getAsma_rinitis());
+    obj.put("farmaco_especificar", ficha.getFarmaco_especificar());
     /*FinTieneTuvo*/
     obj.put("alergias_paciente", ficha.getAlergias_paciente());
     obj.put("vacunas_paciente", ficha.getVacunas_paciente());
