@@ -41,9 +41,10 @@ function buscarIdFicha() {
             $("#alergias_paciente").val(json.alergias_paciente);
             $("#vacunas_paciente").val(json.vacunas_paciente);
             /*Si es femenino*/
-            $("#tiene_embarazo").val(json.tiene_embarazo);
+            
+            $("#tiene_embarazo_select").val(json.tiene_embarazo);
             $("#tiempo_gestacion").val(json.tiempo_gestacion);
-            $("#esta_amamantando").val(json.esta_amamantando);
+            $("#esta_amamantando_select").val(json.esta_amamantando);
             $("#medico_tratante").val(json.medico_tratante);
             $("#medico_tratante_nro").val(json.medico_tratante_nro);
             /* ********* */
@@ -634,7 +635,7 @@ function limpiarFormulario(){
         $("#id_doctor").val("");
         $("#nombre_doctor").val("");
        
-       $("#tiene_embarazo").val("");
+       $("#tiene_embarazo_select").val("");
        $("#tiempo_gestacion").val("");
        $("#esta_amamantando").val("");
        $("#medico_tratante").val("");
@@ -661,7 +662,8 @@ function limpiarFormulario(){
         valor = false;
         $("#mensajes").html("Paciente no puede estar vacio");
         $("#id_paciente").focus();
-    } else if ($("#nombre_ficha").val().trim() === "") {
+    } 
+      else if ($("#nombre_ficha").val().trim() === "") {
         valor = false;
         $("#mensajes").html("Especifique el motivo de la consulta");
         $("#nombre_ficha").focus();

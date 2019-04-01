@@ -19,9 +19,9 @@
     String alteraciones_sistem = request.getParameter("alteraciones_sistem");
     String hab_nocivos = request.getParameter("hab_nocivos");
     String medicacion_actual = request.getParameter("medicacion_actual");
-    String tiene_embarazo = request.getParameter("tiene_embarazo");
+    String tiene_embarazo = request.getParameter("tiene_embarazo_select");
     String tiempo_gestacion = request.getParameter("tiempo_gestacion");
-    String esta_amamantando = request.getParameter("esta_amamantando");
+    String esta_amamantando = request.getParameter("esta_amamantando_select");
     String medico_tratante = request.getParameter("medico_tratante");
     String medico_tratante_nro = request.getParameter("medico_tratante_nro");
 
