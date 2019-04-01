@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 public class UsuariosControlador {
     
-  
+   private static ArrayList<Usuarios> listaUsuarios;
 
     public static boolean agregar(Usuarios usuario) {
 
@@ -195,6 +195,36 @@ public class UsuariosControlador {
         Conexion.cerrar();
         return usuario;
     }
+    
+      public ArrayList listarUsuario() {
+        listaUsuarios = new ArrayList();
+        Usuarios usuario = null;
+        if (Conexion.conectar()) {
+            try {
+                String sql = "select * from usuarios";
+                try (PreparedStatement ps = Conexion.getConn().prepareStatement(sql)) {
+                    //ps.setInt(1, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        usuario = new Usuarios();
+                        usuario.setId_usuario(rs.getInt("id_usuario"));
+                        usuario.setNombre_usuario(rs.getString("nombre_usuario"));
+                        //System.out.println("NOM: " + usuario.getNombre_usuario());
+                        listaUsuarios.add(usuario);
+                    }
+
+                    //cliente.toString();
+                    ps.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("--> " + ex.getLocalizedMessage());
+            }
+        }
+        Conexion.cerrar();
+        return listaUsuarios;
+
+    }
+
 
 }
 

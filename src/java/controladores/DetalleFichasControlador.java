@@ -17,7 +17,7 @@ public class DetalleFichasControlador {
         if (Conexion.conectar()) {
             String sql = "insert into detallefichas "
                     + "(id_ficha,estado_detalleficha,id_servicio,"
-                    + "obs_detalleficha,medicacion_detalleficha,fecha_detalleficha) "
+                    + "obs_detalleficha,medicacion_detalleficha,fecha_detalleficha,p_dentaria,tec_anestesia) "
                     + "values (?,?,?,?,?,?,?,?)";
             try (PreparedStatement ps = Conexion.getConn().prepareStatement(sql)) {
                 ps.setInt(1, detalleficha.getFicha().getId_ficha());
@@ -149,10 +149,11 @@ public class DetalleFichasControlador {
                         tabla += "<tr>"
                                 + "<td>" + rs.getString("id_detalleficha") + "</td>"
                                 + "<td>" + rs.getString("id_servicio") + "</td>"
-                                
+                                + "<td>" + rs.getString("p_dentaria") + "</td>"                                
                                 + "<td>" + rs.getString("nombre_servicio") + "</td>"
                                 + "<td>" + rs.getString("tec_anestesia") + "</td>"
                                 + "<td>" + rs.getString("estado_detalleficha") + "</td>"
+                                + "<td>" + rs.getString("obs_detalleficha") + "</td>"
                                 + "<td>" + rs.getDate("fecha_detalleficha") + "</td>"
                                 //+ "<td class='centrado'>" + df.format(estado) + "</td>"
                                 + "<td class='centrado'>"
