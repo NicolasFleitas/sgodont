@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tratamientos_realizados" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="4d68df1d-f6d7-477d-b9ad-7f626cb7f381">
+	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESDE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select obs_detalleficha as diagnostico, sv.nombre_servicio, df.p_dentaria, df.tec_anestesia, df.fecha_detalleficha, px.nombre_paciente, px.apellido_paciente, px.ci_paciente, px.fechanac_paciente,
+df.estado_detalleficha, df.medicacion_detalleficha
+from detallefichas df , fichas f , servicios sv, pacientes px
+where
+f.id_paciente = px.id_paciente
+and
+df.id_ficha = f.id_ficha
+and
+df.id_servicio = sv.id_servicio
+and px.id_paciente = $P{DESDE}]]>
+	</queryString>
+	<field name="diagnostico" class="java.lang.String"/>
+	<field name="nombre_servicio" class="java.lang.String"/>
+	<field name="p_dentaria" class="java.lang.String"/>
+	<field name="tec_anestesia" class="java.lang.String"/>
+	<field name="fecha_detalleficha" class="java.sql.Date"/>
+	<field name="nombre_paciente" class="java.lang.String"/>
+	<field name="apellido_paciente" class="java.lang.String"/>
+	<field name="ci_paciente" class="java.lang.Integer"/>
+	<field name="fechanac_paciente" class="java.sql.Date"/>
+	<field name="estado_detalleficha" class="java.lang.String"/>
+	<field name="medicacion_detalleficha" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="31" uuid="3e6b085d-fa23-433a-bd83-0465842c69ff"/>
+				<box>
+					<pen lineStyle="Solid"/>
+					<topPen lineStyle="Solid"/>
+					<leftPen lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Ficha - Tratamientos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="93" splitType="Stretch">
+			<textField>
+				<reportElement x="48" y="40" width="126" height="20" uuid="8810f185-7c90-481c-8763-2326eadfa06d"/>
+				<textFieldExpression><![CDATA[$F{apellido_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="20" width="126" height="20" uuid="8a710962-d9f9-41ff-b22a-53b3dfde8eb7"/>
+				<textFieldExpression><![CDATA[$F{nombre_paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="60" width="69" height="20" uuid="610eb085-8d8d-4fef-8b74-64ed04ce1d71"/>
+				<textFieldExpression><![CDATA[$F{ci_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="93" height="20" uuid="3a2fbee2-684e-4fc2-9759-5b90431b1a1c"/>
+				<textElement>
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Datos del Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="48" height="20" uuid="59dc9278-8ace-4e3d-b112-9e562dc27523"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="48" height="20" uuid="f068bc0a-0118-4910-a800-f42f0b153b88"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Apellido:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="48" height="20" uuid="30f30208-99b9-4496-8af1-63caf7c7ad97"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[C.I.Nº:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="260" y="20" width="106" height="20" uuid="3a8453d1-fe6f-4c84-8aac-9771a9eac0d7"/>
+				<textFieldExpression><![CDATA[$F{fechanac_paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="20" width="60" height="20" uuid="7b16ab2c-1eea-4f60-bad8-7a869ae72fd8"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Fecha Nac.:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="169" y="1" width="117" height="20" uuid="851b9d1f-2682-4f79-b60e-5d2080f67c3d"/>
+				<box topPadding="1" leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tratamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="69" y="1" width="100" height="20" uuid="05a4d12e-a009-4d75-b956-e404b15b75f9"/>
+				<box topPadding="1" leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diagnóstico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="69" height="20" uuid="35b6829e-add4-42ac-ad42-614be487d75c"/>
+				<box topPadding="1" leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Dentaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="502" y="1" width="236" height="20" uuid="ccf07f87-92d8-4a80-b5dd-b96b7bf40213"/>
+				<box topPadding="1" leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="286" y="1" width="216" height="20" uuid="811c942b-d349-46db-8363-46f091d3f68d"/>
+				<box topPadding="1" leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Medicación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="738" y="1" width="64" height="20" uuid="6f6792f6-eab0-430a-9322-bf97c906f67f"/>
+				<box topPadding="1" leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="169" y="1" width="117" height="20" uuid="200a33c2-aedf-4987-a72d-da64bc1d5895"/>
+				<box topPadding="1" leftPadding="2">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{nombre_servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="69" y="1" width="100" height="20" uuid="4ec762c0-b65a-43b3-8ce6-ff48c705bcf2"/>
+				<box topPadding="1" leftPadding="2">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{estado_detalleficha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="502" y="1" width="236" height="20" uuid="36c4c331-8093-4a13-a4ea-7ec3e937ad1d"/>
+				<box topPadding="1" leftPadding="2">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{diagnostico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="286" y="1" width="216" height="20" uuid="e00e032e-5025-457d-bdd5-3b06135f327c"/>
+				<box topPadding="1" leftPadding="2">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{medicacion_detalleficha}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="738" y="1" width="64" height="20" uuid="1f42a75f-b622-437b-b3eb-3e4a4ca40674"/>
+				<box topPadding="1" leftPadding="2">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{fecha_detalleficha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="69" height="20" uuid="b1ea33e2-de6b-479b-9ff6-d5ebbdd4bdfb"/>
+				<box topPadding="1" leftPadding="2">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{p_dentaria}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="134" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -465,6 +465,8 @@ function buscarNombreServicio() {
 function agregarLinea() {
     $("#id_detalleficha").val("0");
     $("#id_servicio").val("0");
+    $("#p_dentaria").val("");
+    $("#tec_anestesia").val("");
     $("#nombre_servicio").val("");
     $("#estado_detalleficha").val("");
     $("#obs_detalleficha").val("");
@@ -549,6 +551,8 @@ function buscarIdDetalleFicha() {
             $("#id_detalleficha").val(json.id_detalleficha);
             //alert("ID df: " + json.id_detalleficha);
             $("#id_servicio").val(json.id_servicio);
+            $("#p_dentaria").val(json.p_dentaria);
+            $("#tec_anestesia").val(json.tec_anestesia);
            // alert("ID de servicio: "+json.id_servicio);
             $("#nombre_servicio").val(json.nombre_servicio);
             //alert("Nombre del servicio: "+json.nombre_servicio);

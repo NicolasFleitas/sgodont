@@ -5,18 +5,21 @@ import java.sql.Date;
 
 public class DetalleFichas {
     int id_detalleficha;
-    Servicios servicio;
-    Fichas ficha;
-    String estado_detalleficha;
-    String obs_detalleficha;
-    String medicacion_detalleficha;
-    Date fecha_detalleficha;
+    private Servicios servicio;
+    private Fichas ficha;
+    private String estado_detalleficha;
+    private String obs_detalleficha;
+    private String medicacion_detalleficha;
+    private Date fecha_detalleficha;
+    private String p_dentaria;
+    private String tec_anestesia;
+    
     
 
     public DetalleFichas() {
     }
 
-    public DetalleFichas(int id_detalleficha, Servicios servicio, Fichas ficha, String estado_detalleficha, String obs_detalleficha, String medicacion_detalleficha, Date fecha_detalleficha) {
+    public DetalleFichas(int id_detalleficha, Servicios servicio, Fichas ficha, String estado_detalleficha, String obs_detalleficha, String medicacion_detalleficha, Date fecha_detalleficha, String p_dentaria, String tec_anestesia) {
         this.id_detalleficha = id_detalleficha;
         this.servicio = servicio;
         this.ficha = ficha;
@@ -24,7 +27,27 @@ public class DetalleFichas {
         this.obs_detalleficha = obs_detalleficha;
         this.medicacion_detalleficha = medicacion_detalleficha;
         this.fecha_detalleficha = fecha_detalleficha;
+        this.p_dentaria = p_dentaria;
+        this.tec_anestesia = tec_anestesia;
     }
+
+    public String getTec_anestesia() {
+        return tec_anestesia;
+    }
+
+    public void setTec_anestesia(String tec_anestesia) {
+        this.tec_anestesia = tec_anestesia;
+    }
+
+
+    public String getP_dentaria() {
+        return p_dentaria;
+    }
+
+    public void setP_dentaria(String p_dentaria) {
+        this.p_dentaria = p_dentaria;
+    }
+
 
     public String getObs_detalleficha() {
         return obs_detalleficha;

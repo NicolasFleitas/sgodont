@@ -24,27 +24,7 @@
             tipo = "success";
             mensaje = "Datos encontrados.";
             nuevo = "false";
-        } /*else {
-            detalleficha.setId_detalleficha(0);
-            
-            Servicios servicio = new Servicios();
-            servicio.setId_servicio(0);
-            servicio.setNombre_servicio("");
-            
-            detalleficha.setServicio(servicio);
-            detalleficha.setEstado_detalleficha("");
-            
-            Fichas ficha = new Fichas();
-            ficha.setId_ficha(0);
-            
-            detalleficha.setFicha(ficha);
-            detalleficha.setServicio(servicio);
-            
-            detalleficha.setObs_detalleficha("");
-            detalleficha.setMedicacion_detalleficha("");
-           // detalleficha.setFecha_detalleficha(null);
-        }*/
-
+        } 
 
     JSONObject obj = new JSONObject();
     obj.put("tipo", tipo);
@@ -55,6 +35,8 @@
     obj.put("hora_detalleficha",detalleficha.getEstado_detalleficha());
     obj.put("id_ficha", String.valueOf(detalleficha.getFicha().getId_ficha()));
     obj.put("id_servicio", String.valueOf(detalleficha.getServicio().getId_servicio()));
+    obj.put("p_dentaria", String.valueOf(detalleficha.getP_dentaria()));
+    obj.put("tec_anestesia", String.valueOf(detalleficha.getTec_anestesia()));
     obj.put("nombre_servicio", detalleficha.getServicio().getNombre_servicio());
     obj.put("estado_detalleficha", detalleficha.getEstado_detalleficha());
     obj.put("obs_detalleficha", detalleficha.getObs_detalleficha());

@@ -10,6 +10,8 @@
     //int id_detalleficha = Integer.parseInt(request.getParameter("id_detalleficha"));
     int id_ficha = Integer.parseInt(request.getParameter("id_ficha"));
     int id_servicio = Integer.parseInt(request.getParameter("id_servicio"));
+    String p_dentaria = request.getParameter("p_dentaria");
+    String tec_anestesia = request.getParameter("tec_anestesia");
     String estado_detalleficha = request.getParameter("estado_detalleficha");
 
     String obs_detalleficha = request.getParameter("obs_detalleficha");
@@ -27,6 +29,8 @@
     String mensaje = "Datos no agregados.";
 
     DetalleFichas detalleficha = new DetalleFichas();
+    detalleficha.setP_dentaria(p_dentaria);
+    detalleficha.setTec_anestesia(tec_anestesia);
     detalleficha.setEstado_detalleficha(estado_detalleficha);
     detalleficha.setObs_detalleficha(obs_detalleficha);
     detalleficha.setMedicacion_detalleficha(medicacion_detalleficha);

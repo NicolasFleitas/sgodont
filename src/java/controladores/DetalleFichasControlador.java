@@ -18,7 +18,7 @@ public class DetalleFichasControlador {
             String sql = "insert into detallefichas "
                     + "(id_ficha,estado_detalleficha,id_servicio,"
                     + "obs_detalleficha,medicacion_detalleficha,fecha_detalleficha) "
-                    + "values (?,?,?,?,?,?)";
+                    + "values (?,?,?,?,?,?,?,?)";
             try (PreparedStatement ps = Conexion.getConn().prepareStatement(sql)) {
                 ps.setInt(1, detalleficha.getFicha().getId_ficha());
                 ps.setString(2, detalleficha.getEstado_detalleficha());
@@ -26,6 +26,8 @@ public class DetalleFichasControlador {
                 ps.setString(4, detalleficha.getObs_detalleficha());
                 ps.setString(5, detalleficha.getMedicacion_detalleficha());
                 ps.setDate(6, detalleficha.getFecha_detalleficha());
+                ps.setString(7, detalleficha.getP_dentaria());
+                ps.setString(8, detalleficha.getTec_anestesia());
                 ps.executeUpdate();
                 ps.close();
                 Conexion.getConn().setAutoCommit(false);
@@ -75,7 +77,8 @@ public class DetalleFichasControlador {
 
                     detalleficha.setFicha(ficha);
                     detalleficha.setServicio(servicio);
-
+                    detalleficha.setP_dentaria(rs.getString("p_dentaria"));
+                    detalleficha.setTec_anestesia(rs.getString("tec_anestesia"));
                     detalleficha.setObs_detalleficha(rs.getString("obs_detalleficha"));
                     detalleficha.setMedicacion_detalleficha(rs.getString("medicacion_detalleficha"));
                     detalleficha.setFecha_detalleficha(rs.getDate("fecha_detalleficha"));
@@ -95,6 +98,8 @@ public class DetalleFichasControlador {
 
                     detalleficha.setServicio(servicio);
                     detalleficha.setEstado_detalleficha("");
+                    detalleficha.setP_dentaria("");
+                    detalleficha.setTec_anestesia("");
 
                     Fichas ficha = new Fichas();
                     ficha.setId_ficha(0);
@@ -144,7 +149,9 @@ public class DetalleFichasControlador {
                         tabla += "<tr>"
                                 + "<td>" + rs.getString("id_detalleficha") + "</td>"
                                 + "<td>" + rs.getString("id_servicio") + "</td>"
+                                
                                 + "<td>" + rs.getString("nombre_servicio") + "</td>"
+                                + "<td>" + rs.getString("tec_anestesia") + "</td>"
                                 + "<td>" + rs.getString("estado_detalleficha") + "</td>"
                                 + "<td>" + rs.getDate("fecha_detalleficha") + "</td>"
                                 //+ "<td class='centrado'>" + df.format(estado) + "</td>"
@@ -182,7 +189,9 @@ public class DetalleFichasControlador {
                     + "id_servicio='"+ detalleficha.getServicio().getId_servicio() +"',"
                     + "obs_detalleficha='"+ detalleficha.getObs_detalleficha() +"',"
                     + "medicacion_detalleficha='"+ detalleficha.getMedicacion_detalleficha() +"',"
-                    + "fecha_detalleficha='"+ detalleficha.getFecha_detalleficha() +"'"                   
+                    + "fecha_detalleficha='"+ detalleficha.getFecha_detalleficha() +"',"                   
+                    + "p_dentaria='"+ detalleficha.getP_dentaria() +"',"     
+                    + "tec_anestesia='"+ detalleficha.getTec_anestesia()+"'" 
                     + " where "
                     + "id_detalleficha= " + detalleficha.getId_detalleficha();
             System.out.println("*****");
