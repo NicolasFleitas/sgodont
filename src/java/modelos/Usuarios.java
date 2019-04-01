@@ -61,12 +61,11 @@ public class Usuarios {
         this.rol = rol;
     }
     
-      public JSONObject getJSONString() {
+     public JSONObject getJSONString() {
+
         JSONObject obj = new JSONObject();
         obj.put("id_usuario", this.id_usuario);
         obj.put("nombre_usuario", this.nombre_usuario);       
         return obj;
     }
-   
-
 }
